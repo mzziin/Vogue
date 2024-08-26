@@ -16,6 +16,7 @@ namespace BLL
             var products =  obj.GetAllProducts();
             return products;
         }
+
         public ProductEntity ListProduct(int id)
         {
             var product = obj.GetProductById(id);

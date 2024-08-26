@@ -14,5 +14,7 @@ namespace DAL.Entities
         public int Quantity { get; set; }
         public int UnitPrice { get; set; }
         public int TotalPrice { get; set; }
+        public string ProductName { get; set; }
+        public string ImageUrl { get; set; }
     }
 }

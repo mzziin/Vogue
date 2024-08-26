@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Cart.aspx.cs" Inherits="Vogue.Cart" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Cart.aspx.cs" Inherits="Vogue.Cart" EnableEventValidation="false"  %>
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="NavbarContent" runat="server">
     <div class="container-fluid">
@@ -79,32 +80,41 @@
                     </thead>
                     <tbody class="align-middle">
 
-                        <asp:Repeater ID="repeat_cart_product" runat="server">
+                        <asp:Repeater ID="repeat_cart_product" runat="server" OnItemCommand="repeat_cart_product_ItemCommand">
                         <ItemTemplate>
                         <tr>
-                            <td class="align-middle"><img src="img/product-5.jpg" alt="" style="width: 50px;"> 
-                                <asp:Label runat="server" ID="name" Text="<%# Eval("name") %>"></asp:Label>
+                            <td class="align-middle"><img src="img/product-5.jpg" alt="" style="width: 50px;">
+                                <asp:Label runat="server" ID="Label2" Text='<%# Eval("ProductName") %>'></asp:Label>
+                                <asp:Label runat="server" ID="cartid" Text='<%# Eval("CartId") %>' Visible="false"></asp:Label>
                             </td>
                             <td class="align-middle">
-                                <asp:Label runat="server" ID="Label1" Text="<%# Eval("price") %>"></asp:Label>
+                                <asp:Label runat="server" ID="unitlabel" Text='<%# Eval("UnitPrice") %>'></asp:Label>
                             </td>
                             <td class="align-middle">
                                 <div class="input-group quantity mx-auto" style="width: 100px;">
                                     <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-minus" >
-                                        <i class="fa fa-minus"></i>
-                                        </button>
+                                        <asp:Button runat="server" Text="-" ID="btnminus" CommandName="minus" CommandArgument='<%# Eval("ProductId") %>' CssClass="btn btn-sm btn-primary btn-minus"/>
                                     </div>
-                                    <input type="text" class="form-control form-control-sm bg-secondary text-center" value="1">
+                                    <asp:Label runat="server" Text='<%# Eval("Quantity") %>' ID="qty" class="form-control form-control-sm bg-secondary text-center"></asp:Label>
+                                    
                                     <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-plus">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
+  
+                                         <asp:Button runat="server" Text="+" ID="btnplus" CommandName="plus" CommandArgument='<%# Eval("ProductId") %>' CssClass="btn btn-sm btn-primary btn-plus"/>
+                                        
                                     </div>
                                 </div>
                             </td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-primary"><i class="fa fa-times"></i></button></td>
+                            <td class="align-middle">
+                                <asp:Label runat="server" ID="totalprice" Text='<%# Eval("TotalPrice") %>'></asp:Label>
+                               
+                            </td>
+                            <td class="align-middle">
+                                <button class="btn btn-sm btn-primary">
+                                    <i class="fa fa-times">
+                                       
+                                    </i>
+                                </button>
+                            </td>
                         </tr>
                         </ItemTemplate>
                     </asp:Repeater>
@@ -131,7 +141,9 @@
                     <div class="card-footer border-secondary bg-transparent">
                         <div class="d-flex justify-content-between mt-2">
                             <h5 class="font-weight-bold">Total</h5>
-                            <h5 class="font-weight-bold">$160</h5>
+                            <h5 class="font-weight-bold">
+                                <asp:Label runat="server" ID="totalsum" Text=""></asp:Label>
+                            </h5>
                         </div>
                         <button class="btn btn-block btn-primary my-3 py-3">Proceed To Checkout</button>
                     </div>
