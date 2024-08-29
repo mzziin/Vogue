@@ -8,10 +8,10 @@ using DAL.Entities;
 
 namespace DAL.Repositories
 {
-    public class UserRepository
+    public class UserDataAccess
     {
         private readonly string _connectionString;
-        public UserRepository()
+        public UserDataAccess()
         {
             _connectionString = @"server=DESKTOP-SHCNBA7\SQLEXPRESS;database=Vogue;Integrated Security=true";
         }

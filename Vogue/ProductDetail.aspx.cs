@@ -36,6 +36,7 @@ namespace Vogue
                     description.Text = product.Description;
                     price.Text = product.Price.ToString();
                     productId.Text = pid;
+                    Image1.ImageUrl = product.ImageUrl;
 ;               }
             }
            

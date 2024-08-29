@@ -3,12 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="NavbarContent" runat="server">
     <div class="container-fluid">
                     <div class="row border-top px-xl-5">
-                        <div class="col-lg-3 d-none d-lg-block">
-                            <a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; margin-top: -1px; padding: 0 30px;">
+                        <%--<%--<%--<div class="col-lg-3 d-none d-lg-block">
+                            <%--<a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; margin-top: -1px; padding: 0 30px;">
                                 <h6 class="m-0">Categories</h6>
                                 <i class="fa fa-angle-down text-dark"></i>
-                            </a>
-                            <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 1;">
+                            </a>--%>
+                            <%--<nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 1;">
                                 <div class="navbar-nav w-100 overflow-hidden">
 
                                     <a href="" class="nav-item nav-link">Shirts</a>
@@ -18,7 +18,7 @@
                                     <a href="" class="nav-item nav-link">Jackets</a>
                                     <a href="" class="nav-item nav-link">Shoes</a>
                                 </div>
-                            </nav>
+                            </nav>--%>
                         </div>
                         <div class="col-lg-9">
                             <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
@@ -29,7 +29,7 @@
                                     <span class="navbar-toggler-icon"></span>
                                 </button>
                                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                                    <div class="navbar-nav mr-auto py-0">
+                                    <div class="navbar-nav mr-auto py-0 ps-2">
                                         <a href="index.aspx" class="nav-item nav-link">Home</a>
                                         <a href="shop.aspx" class="nav-item nav-link">Shop</a>
                                         <a href="contact.aspx" class="nav-item nav-link">Contact</a>
@@ -100,11 +100,12 @@
             </div>
             <div class="col-lg-5 mb-5">
                 <h5 class="font-weight-semi-bold mb-3">Get In Touch</h5>
-                <p>Justo sed diam ut sed amet duo amet lorem amet stet sea ipsum, sed duo amet et. Est elitr dolor elitr erat sit sit. Dolor diam et erat clita ipsum justo sed.</p>
+                <p>We’d love to hear from you! Whether you have a question about our products, need assistance with an order, or just want to share your feedback, we’re here to help. 
+                    Fill out the form, send us an email, or give us a call, and we’ll get back to you as soon as possible.</p>
                 <div class="d-flex flex-column mb-3">
                     <h5 class="font-weight-semi-bold mb-3">Store 1</h5>
                     <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>123 Street, New York, USA</p>
-                    <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>info@example.com</p>
+                    <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>Vogue.info@gmail.com</p>
                     <p class="mb-2"><i class="fa fa-phone-alt text-primary mr-3"></i>+012 345 67890</p>
                 </div>
                 <div class="d-flex flex-column">

@@ -8,10 +8,10 @@ using DAL.Entities;
 
 namespace DAL.Repositories
 {
-    public class CartRepository
+    public class CartDataAccess
     {
         private readonly string _connectionString;
-        public CartRepository()
+        public CartDataAccess()
         {
             _connectionString = @"server=DESKTOP-SHCNBA7\SQLEXPRESS;database=Vogue;Integrated Security=true";
         }

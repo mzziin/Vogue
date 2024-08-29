@@ -10,7 +10,7 @@ namespace BLL
 {
     public class CartService
     {
-        CartRepository obj = new CartRepository();
+        CartDataAccess obj = new CartDataAccess();
         
         public bool AddToCart(int Uid, int Pid, int qty, decimal unitprice, decimal totalprice, string name, string imageurl)
         {
@@ -45,7 +45,16 @@ namespace BLL
         public decimal GetTotalPrice(int uid)
         {
             string total = obj.GetTotal(uid);
-            return Convert.ToDecimal(total);
+            decimal result;
+            if(decimal.TryParse(total, out result))
+            {
+                return result;
+            }
+            else
+            {
+                return 0.00M;
+            }
+           
         }
         public bool UpdateCartByProductAndUser(int pid, int qty, int uid, decimal totalprice)
         {

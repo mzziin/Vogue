@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using DAL.Entities;
+using System.Data;
 
 namespace DAL.Repositories
 {
-    public class ProductRepository
+    public class ProductDataAccess
     {
         private readonly string _connectionString;
-        public ProductRepository()
+        public ProductDataAccess()
         {
             _connectionString = @"server=DESKTOP-SHCNBA7\SQLEXPRESS;database=Vogue;Integrated Security=true";
         }
@@ -44,7 +45,35 @@ namespace DAL.Repositories
             }
             return products; // return the product list which can be used as the datasource for repeater or gridview
         }
-
+        public List<ProductEntity> GetAllProductsOnCategory(int cid)
+        {
+            List<ProductEntity> products = new List<ProductEntity>(); // list of type ProductEntity
+            string query = "Select * from Products where CategoryId=@cid";
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@cid", cid);
+                    SqlDataReader sdr = cmd.ExecuteReader();
+                    while (sdr.Read())
+                    {
+                        ProductEntity product = new ProductEntity
+                        {
+                            ProductId = Convert.ToInt32(sdr["ProductId"]),
+                            Name = sdr["Name"].ToString(),
+                            Description = sdr["Description"].ToString(),
+                            Stock = Convert.ToInt32(sdr["Stock"]),
+                            Price = Convert.ToDecimal(sdr["Price"]),
+                            CategoryId = Convert.ToInt32(sdr["CategoryId"]),
+                            ImageUrl = sdr["ImageUrl"].ToString()
+                        };
+                        products.Add(product);
+                    }
+                }
+            }
+            return products; // return the product list which can be used as the datasource for repeater or gridview
+        }
         public ProductEntity GetProductById(int id)
         {
             string query = "Select * from Products where ProductId=@id";
@@ -75,6 +104,18 @@ namespace DAL.Repositories
             }
             return product; // return the productEntity type 
                            // data can be accessed with dot operator
+        }
+        public DataTable GetCategories()
+        {
+            DataTable dt = new DataTable();
+            string query = "Select * from Categories";
+            using(SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                conn.Open();
+                SqlDataAdapter sdr = new SqlDataAdapter(query, conn);
+                sdr.Fill(dt);
+            }
+            return dt;
         }
     }
 }

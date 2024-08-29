@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="Vogue.index" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="NavbarContent" runat="server">
-     <div class="container-fluid mb-5">
+    <div class="container-fluid mb-5">
         <div class="row border-top px-xl-5">
             <div class="col-lg-3 d-none d-lg-block">
                 <a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; margin-top: -1px; padding: 0 30px;">
@@ -9,13 +10,13 @@
                 </a>
                 <nav class="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0" id="navbar-vertical">
                     <div class="navbar-nav w-100 overflow-hidden">
-                        <a href="" class="nav-item nav-link">Basic Daypacks</a>
-                        <a href="" class="nav-item nav-link">Rucksacks</a>
-                        <a href="" class="nav-item nav-link">Laptop Backpacks</a>
-                        <a href="" class="nav-item nav-link">Duffel Backpacks</a>
-                        <a href="" class="nav-item nav-link">Tote Backpacks</a>
-                        <a href="" class="nav-item nav-link">Trekking Backpacks</a>
-                        <a href="" class="nav-item nav-link">Travel Backpacks</a>
+                        <asp:Repeater ID="repeat_category" runat="server">
+                            <ItemTemplate>
+
+                                <a href="shop.aspx?CategoryId=<%# Eval("CategoryId") %>" class="nav-item nav-link" ID="category_name"><%# Eval("CategoryName") %></a>
+
+                            </ItemTemplate>
+                        </asp:Repeater>
                     </div>
                 </nav>
             </div>
@@ -31,11 +32,11 @@
                         <div class="navbar-nav mr-auto py-0">
                             <a href="index.aspx" class="nav-item nav-link active">Home</a>
                             <a href="shop.aspx" class="nav-item nav-link">Shop</a>
-                            
+
                             <a href="contact.aspx" class="nav-item nav-link">Contact</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0">
-                            
+
                             <a href="Login.aspx" class="nav-item nav-link">
                                 <asp:Label runat="server" ID="loginlabel">Login</asp:Label>
                             </a>
@@ -48,22 +49,22 @@
                 <div id="header-carousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active" style="height: 410px;">
-                            <img class="img-fluid" src="img/carousel-1.jpg" alt="Image">
+                            <img class="img-fluid" src="img/banner1.jpg" alt="Image">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
-                                    <h4 class="text-light text-uppercase font-weight-medium mb-3">10% Off Your First Order</h4>
-                                    <h3 class="display-4 text-white font-weight-semi-bold mb-4">Fashionable Dress</h3>
-                                    <a href="" class="btn btn-light py-2 px-3">Shop Now</a>
+                                    <h4 class="text-light text-uppercase font-weight-medium mb-3">Stylish, Durable, and Designed Just for You</h4>
+                                    <h3 class="display-4 text-white font-weight-semi-bold mb-4">Discover Your Perfect Bag</h3>
+                                    <a href="shop.aspx" class="btn btn-light py-2 px-3">Shop Now</a>
                                 </div>
                             </div>
                         </div>
                         <div class="carousel-item" style="height: 410px;">
-                            <img class="img-fluid" src="img/carousel-2.jpg" alt="Image">
+                            <img class="img-fluid" src="img/banner2.jpg" alt="Image">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
-                                    <h4 class="text-light text-uppercase font-weight-medium mb-3">10% Off Your First Order</h4>
-                                    <h3 class="display-4 text-white font-weight-semi-bold mb-4">Reasonable Price</h3>
-                                    <a href="" class="btn btn-light py-2 px-3">Shop Now</a>
+                                    <h4 class="text-light text-uppercase font-weight-medium mb-3">Explore Our Exclusive Collection of Bags</h4>
+                                    <h3 class="display-4 text-white font-weight-semi-bold mb-4">Bags for Every Occasion</h3>
+                                    <a href="shop.aspx" class="btn btn-light py-2 px-3">Shop Now</a>
                                 </div>
                             </div>
                         </div>
@@ -85,7 +86,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-        <!-- Featured Start -->
+    <!-- Featured Start -->
     <div class="container-fluid pt-5">
         <div class="row px-xl-5 pb-3">
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
@@ -117,7 +118,7 @@
     <!-- Featured End -->
 
 
-    
+
 
 
     <!-- Offer Start -->
@@ -125,9 +126,9 @@
         <div class="row px-xl-5">
             <div class="col-md-6 pb-4">
                 <div class="position-relative bg-secondary text-center text-md-right text-white mb-2 py-5 px-5">
-                    <img src="img/offer-1.png" alt="">
+                    <img src="img/backpack2.png" alt="">
                     <div class="position-relative" style="z-index: 1;">
-                        <h5 class="text-uppercase text-primary mb-3">20% off the all order</h5>
+                        <h5 class="text-uppercase text-primary mb-3">20% off on all order</h5>
                         <h1 class="mb-4 font-weight-semi-bold">Spring Collection</h1>
                         <a href="shop.aspx" class="btn btn-outline-primary py-md-2 px-md-3">Shop Now</a>
                     </div>
@@ -135,9 +136,9 @@
             </div>
             <div class="col-md-6 pb-4">
                 <div class="position-relative bg-secondary text-center text-md-left text-white mb-2 py-5 px-5">
-                    <img src="img/offer-2.png" alt="">
+                    <img src="img/backpack1.png" alt="">
                     <div class="position-relative" style="z-index: 1;">
-                        <h5 class="text-uppercase text-primary mb-3">20% off the all order</h5>
+                        <h5 class="text-uppercase text-primary mb-3">20% off on all order</h5>
                         <h1 class="mb-4 font-weight-semi-bold">Winter Collection</h1>
                         <a href="shop.aspx" class="btn btn-outline-primary py-md-2 px-md-3">Shop Now</a>
                     </div>
@@ -154,7 +155,7 @@
             <div class="col-md-6 col-12 py-5">
                 <div class="text-center mb-2 pb-2">
                     <h2 class="section-title px-5 mb-3"><span class="bg-secondary px-2">Stay Updated</span></h2>
-                    <p>Amet lorem at rebum amet dolores. Elitr lorem dolor sed amet diam labore at justo ipsum eirmod duo labore labore.</p>
+                    <p>Get the latest updates, exclusive offers, and the newest arrivals delivered straight to your inbox. Subscribe now and never miss out!</p>
                 </div>
                 <form action="">
                     <div class="input-group">

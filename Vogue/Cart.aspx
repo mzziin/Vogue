@@ -83,7 +83,9 @@
                         <asp:Repeater ID="repeat_cart_product" runat="server" OnItemCommand="repeat_cart_product_ItemCommand">
                         <ItemTemplate>
                         <tr>
-                            <td class="align-middle"><img src="img/product-5.jpg" alt="" style="width: 50px;">
+                            <td class="align-middle">
+                                <asp:Image ID="Image1" ImageUrl='<%# Eval("ImageUrl") %>' runat="server"  style="width: 50px;"/>
+                                
                                 <asp:Label runat="server" ID="Label2" Text='<%# Eval("ProductName") %>'></asp:Label>
                                 <asp:Label runat="server" ID="cartid" Text='<%# Eval("CartId") %>' Visible="false"></asp:Label>
                             </td>
@@ -128,16 +130,7 @@
                     <div class="card-header bg-secondary border-0">
                         <h4 class="font-weight-semi-bold m-0">Cart Summary</h4>
                     </div>
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between mb-3 pt-1">
-                            <h6 class="font-weight-medium">Subtotal</h6>
-                            <h6 class="font-weight-medium">$150</h6>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-medium">Shipping</h6>
-                            <h6 class="font-weight-medium">$10</h6>
-                        </div>
-                    </div>
+                    
                     <div class="card-footer border-secondary bg-transparent">
                         <div class="d-flex justify-content-between mt-2">
                             <h5 class="font-weight-bold">Total</h5>

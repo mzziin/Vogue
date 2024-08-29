@@ -11,12 +11,13 @@
                             <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 1;">
                                 <div class="navbar-nav w-100 overflow-hidden">
 
-                                    <a href="" class="nav-item nav-link">Shirts</a>
-                                    <a href="" class="nav-item nav-link">Jeans</a>
-                                    <a href="" class="nav-item nav-link">Tshirt</a>
-                                    <a href="" class="nav-item nav-link">Pants</a>
-                                    <a href="" class="nav-item nav-link">Jackets</a>
-                                    <a href="" class="nav-item nav-link">Shoes</a>
+                                    <asp:Repeater ID="repeat_category" runat="server">
+                            <ItemTemplate>
+
+                                <a href="shop.aspx?CategoryId=<%# Eval("CategoryId") %>" class="nav-item nav-link" ID="category_name"><%# Eval("CategoryName") %></a>
+
+                            </ItemTemplate>
+                        </asp:Repeater>
                                 </div>
                             </nav>
                         </div>
@@ -75,14 +76,15 @@
                             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
                                 <div class="card product-item border-0 mb-4">
                                     <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                        <img class="img-fluid w-100" src="img/product-1.jpg" alt="">
+                                        <asp:Image ID="Image1" CssClass="img-fluid w-100" runat="server" ImageUrl='<%# Eval("ImageUrl") %>' />
+                                        <%--<img class="img-fluid w-100" src='<%# Eval("ImageUrl") %>' alt="">--%>
                                     </div>
                                     <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                         <h6 class="text-truncate mb-3">
                                             <asp:Label runat="server" ID="name" Text='<%# Eval("Name") %>'></asp:Label>
                                         </h6>
                                         <div class="d-flex justify-content-center">
-                                            <h6>
+                                            <h6>&#x20b9;
                                                 <asp:Label runat="server" ID="price" Text='<%# Eval("Price") %>'></asp:Label>
                                             </h6>
                                         </div>

@@ -34,7 +34,7 @@ namespace Vogue
                 else if(UserRole == "Vendor")
                 {
                     Session["vendor"] = UserId;
-                    Response.Redirect("admin.aspx");
+                    Response.Redirect("AdminPanel.aspx");
                 }
 
             }

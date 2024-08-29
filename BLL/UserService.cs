@@ -12,7 +12,7 @@ namespace BLL
     public class UserService
     {
         UserEntity user = null;
-        UserRepository obj = new UserRepository();
+        UserDataAccess obj = new UserDataAccess();
         public bool InsertUser(string name, string username, string email, string password, string role, string phone, string address, string zip)
         {
             user = new UserEntity

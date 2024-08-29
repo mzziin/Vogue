@@ -67,31 +67,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminAddProduct.aspx" />
+    <Content Include="AdminPanel.aspx" />
+    <Content Include="AdminProductUpdate.aspx" />
     <Content Include="Cart.aspx" />
     <Content Include="Checkout.aspx" />
     <Content Include="contact.aspx" />
     <Content Include="css\style.css" />
     <Content Include="css\style.min.css" />
-    <Content Include="img\carousel-1.jpg" />
-    <Content Include="img\carousel-2.jpg" />
-    <Content Include="img\cat-1.jpg" />
-    <Content Include="img\cat-2.jpg" />
-    <Content Include="img\cat-3.jpg" />
-    <Content Include="img\cat-4.jpg" />
-    <Content Include="img\cat-5.jpg" />
-    <Content Include="img\cat-6.jpg" />
-    <Content Include="img\offer-1.png" />
-    <Content Include="img\offer-2.png" />
+    <Content Include="img\backpack1.png" />
+    <Content Include="img\backpack2.png" />
+    <Content Include="img\banner2.jpg" />
+    <Content Include="img\banner1.jpg" />
     <Content Include="img\payments.png" />
     <Content Include="img\product-1.jpg" />
-    <Content Include="img\product-2.jpg" />
-    <Content Include="img\product-3.jpg" />
     <Content Include="img\product-4.jpg" />
     <Content Include="img\product-5.jpg" />
-    <Content Include="img\product-6.jpg" />
-    <Content Include="img\product-7.jpg" />
-    <Content Include="img\product-8.jpg" />
-    <Content Include="img\user.jpg" />
     <Content Include="img\vendor-1.jpg" />
     <Content Include="img\vendor-2.jpg" />
     <Content Include="img\vendor-3.jpg" />
@@ -122,6 +113,27 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminAddProduct.aspx.cs">
+      <DependentUpon>AdminAddProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminAddProduct.aspx.designer.cs">
+      <DependentUpon>AdminAddProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel.aspx.cs">
+      <DependentUpon>AdminPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPanel.aspx.designer.cs">
+      <DependentUpon>AdminPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminProductUpdate.aspx.cs">
+      <DependentUpon>AdminProductUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminProductUpdate.aspx.designer.cs">
+      <DependentUpon>AdminProductUpdate.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Cart.aspx.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -298,6 +310,9 @@
       <Project>{caec4825-5986-4129-bc54-05fbd9dbc358}</Project>
       <Name>DAL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

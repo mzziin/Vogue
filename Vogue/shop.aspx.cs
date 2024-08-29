@@ -14,6 +14,11 @@ namespace Vogue
         ProductService obj = new ProductService();
         protected void Page_Load(object sender, EventArgs e)
         {
+            string Cid = Request.QueryString["CategoryId"];
+
+            repeat_category.DataSource = obj.GetCategory();
+            repeat_category.DataBind();
+
             if (Session["customer"] != null)
             {
                 loginlabel.Visible = false;
@@ -24,12 +29,21 @@ namespace Vogue
                 loginlabel.Visible = true;
                 registerlabel.Visible = true;
             }
+
             if (!IsPostBack)
             {
-                List<ProductEntity> products =  obj.ListAllProducts();
-                repeat_product.DataSource = products;
-                repeat_product.DataBind();
-
+                if(Cid != null)
+                {
+                    List<ProductEntity> products = obj.ListAllProducts(Cid);
+                    repeat_product.DataSource = products;
+                    repeat_product.DataBind();
+                }
+                else
+                {
+                    List<ProductEntity> products = obj.ListAllProducts();
+                    repeat_product.DataSource = products;
+                    repeat_product.DataBind();
+                }
             }
 
         }

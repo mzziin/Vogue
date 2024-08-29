@@ -54,7 +54,8 @@
     <div class="container-fluid pt-5">
         <div class="row px-xl-5">
             <div class="col">
-                <img class="w-100 h-100" src="img/product-1.jpg" alt="Image">
+                <asp:Image ID="Image1" runat="server" class="w-100 h-100" />
+                
             </div>
 
             <div class="col-lg-7 pt-5">

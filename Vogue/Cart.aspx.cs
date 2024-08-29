@@ -34,34 +34,32 @@ namespace Vogue
                 decimal sumprice = obj.GetTotalPrice(uid);
                 totalsum.Text = sumprice.ToString();
             }
-            
-
         }
 
         protected void repeat_cart_product_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             Label Cidlbl = (Label)e.Item.FindControl("cartid");
-            int Cid = Convert.ToInt32(Cidlbl.Text);
+
             int uid = Convert.ToInt32(Session["Customer"]);
             int pid = Convert.ToInt32(e.CommandArgument.ToString());
-            
             int Qty = obj.QtyOfCartProducts(uid, pid);
+
             Label unitlbl = (Label)e.Item.FindControl("unitlabel");
             decimal unitprice = Convert.ToDecimal(unitlbl.Text);
             decimal totalprice;
+
             switch (e.CommandName)
             {
                 case "plus":
-                    Qty ++;
+                    Qty++;
                     totalprice = Qty * unitprice;
                     obj.UpdateCartByProductAndUser(pid, Qty, uid, totalprice);
-                    
                     break;
+
                 case "minus":
                     Qty--;
                     totalprice = Qty * unitprice;
                     obj.UpdateCartByProductAndUser(pid, Qty, uid, totalprice);
-                   
                     break;
             }
             Response.Redirect("Cart.aspx");
