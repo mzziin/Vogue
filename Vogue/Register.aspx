@@ -14,6 +14,8 @@
             <div class="login-page">
                 <div class="form">
                     <form class="login-form">
+                        <asp:Label runat="server" ID="error_msg_for_label" Text="" Visible="false"></asp:Label>
+                        <br /><br />
                         <asp:Label runat="server" ID="Label2">FullName</asp:Label>
                         <asp:TextBox runat="server" ID="fullname"></asp:TextBox>
 
@@ -44,8 +46,9 @@
                         <asp:Label runat="server" ID="Label7">ZipCode</asp:Label>
                         <asp:TextBox runat="server" ID="zip"></asp:TextBox>
 
-                        <asp:Button runat="server" ID="btn1" Text="Register" OnClick="btn1_Click" />
-                        <asp:Label runat="server" ID="error_msg" Text="" Visible="false"></asp:Label>
+
+                        <asp:Button runat="server" ID="btn1" style="cursor:pointer;" BackColor="#D19C97" Text="Register" OnClick="btn1_Click" />
+                        <asp:Label runat="server" ID="error_msg" Text="" ForeColor="Red" Visible="false"></asp:Label>
                         <p class="message">Have an Account? <a href="Login.aspx">Login</a></p>
                     </form>
                 </div>

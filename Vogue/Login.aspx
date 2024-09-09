@@ -21,8 +21,9 @@
                         <asp:Label runat="server" ID="Label1">Password</asp:Label>
                         <asp:TextBox runat="server" ID="pwd"></asp:TextBox>
 
-                        <asp:Button runat="server" ID="btn1" Text="Login" Font-Bold="true" OnClick="btn1_Click"/>
-                        <asp:Label runat="server" ID="errorMsg" Text="" Visible="false"></asp:Label>
+                        <asp:Button BackColor="#D19C97" style="cursor:pointer;" runat="server" ID="btn1" Text="Login" Font-Bold="true" OnClick="btn1_Click"/>
+
+                        <asp:Label runat="server" ID="errorMsg" ForeColor="Red" Text="" Visible="false"></asp:Label>
                         <p class="message">Not registered? <a href="Register.aspx">Create an account</a></p>
                     </form>
                 </div>
