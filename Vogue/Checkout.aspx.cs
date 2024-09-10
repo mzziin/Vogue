@@ -18,8 +18,8 @@ namespace Vogue
             }
             else
             {
-                loginlabel.Visible = true;
-                registerlabel.Visible = true;
+                Response.Redirect("Login.aspx");
+                
             }
         }
     }

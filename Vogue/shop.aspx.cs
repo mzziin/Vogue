@@ -26,6 +26,8 @@ namespace Vogue
             }
             else
             {
+                Button logoutbtn = (Button)Master.FindControl("logoutBtn");
+                logoutbtn.Visible = false;
                 loginlabel.Visible = true;
                 registerlabel.Visible = true;
             }

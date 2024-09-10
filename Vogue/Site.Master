@@ -31,7 +31,6 @@
         <div>
             <!-- Topbar Start -->
             <div class="container-fluid my-3">
-                
 
                 <div class="row align-items-center py-3 px-xl-5">
                     <div class="col-lg-6 d-none d-lg-block">
@@ -39,7 +38,7 @@
                             <h1 class="m-0 display-5 font-weight-semi-bold">Vogue</h1>
                         </a>
                     </div>
-                    
+
                     <div class="col-lg-6 col-6 text-right">
                         <!-- <a href="" class="btn border">
                             <i class="fas fa-heart text-primary"></i>
@@ -48,11 +47,12 @@
                         <a href="Cart.aspx" class="btn border">
                             <i class="fas fa-shopping-cart text-primary"></i>
                         </a>
+                        <asp:Button runat="server" ID="logoutBtn" Visible="true" Text="Logout" CssClass="btn border" OnClick="logoutBtn_Click" />
+
                     </div>
                 </div>
             </div>
             <!-- Topbar End -->
-
 
             <!-- Navbar Start -->
             <!-- content-placeholder-1 -->
@@ -62,18 +62,14 @@
                         <div class="col-lg-3 d-none d-lg-block">
                             <a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; margin-top: -1px; padding: 0 30px;">
                                 <h6 class="m-0">Categories</h6>
-                                <i class="fa fa-angle-down text-dark"></i>
-                            </a>
+                                <i class="fa fa-angle-down text-dark"></i></a>
                             <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 1;">
                                 <div class="navbar-nav w-100 overflow-hidden">
-
                                     <asp:Repeater ID="repeat_category" runat="server">
-                            <ItemTemplate>
-
-                                <a href="shop.aspx?CategoryId=<%# Eval("CategoryId") %>" class="nav-item nav-link" ID="category_name"><%# Eval("CategoryName") %></a>
-
-                            </ItemTemplate>
-                        </asp:Repeater>
+                                        <ItemTemplate>
+                                            <a href="shop.aspx?CategoryId=<%# Eval("CategoryId") %>" class="nav-item nav-link" id="category_name"><%# Eval("CategoryName") %></a>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
                                 </div>
                             </nav>
                         </div>
@@ -87,21 +83,17 @@
                                 </button>
                                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                                     <div class="navbar-nav mr-auto py-0">
-                                        <a href="index.aspx" class="nav-item nav-link">Home</a>
-                                        <a href="shop.aspx" class="nav-item nav-link">Shop</a>
-                                        <a href="contact.aspx" class="nav-item nav-link">Contact</a>
+                                        <a href="index.aspx" class="nav-item nav-link">Home</a> <a href="shop.aspx" class="nav-item nav-link">Shop</a> <a href="contact.aspx" class="nav-item nav-link">Contact</a>
                                     </div>
                                     <div class="navbar-nav ml-auto py-0">
                                         <a href="Login.aspx" class="nav-item nav-link">
-                                <asp:Label runat="server" ID="loginlabel">Login</asp:Label>
-                            </a>
-                            <a href="Register.aspx" class="nav-item nav-link">
-                                <asp:Label runat="server" ID="registerlabel">Register</asp:Label>
-                            </a>
+                                            <asp:Label runat="server" ID="loginlabel">Login</asp:Label>
+                                        </a><a href="Register.aspx" class="nav-item nav-link">
+                                            <asp:Label runat="server" ID="registerlabel">Register</asp:Label>
+                                        </a>
                                     </div>
                                 </div>
                             </nav>
-
                         </div>
                     </div>
                 </div>
@@ -118,9 +110,7 @@
             <div class="container-fluid bg-secondary text-dark mt-5 pt-5">
                 <div class="row px-xl-5 pt-5">
                     <div class="col-lg-6 col-md-12 mb-5 pr-3 pr-xl-5">
-                        <a href="" class="text-decoration-none">
-                            <h1 class="mb-4 display-5 font-weight-semi-bold">Vogue</h1>
-                        </a>
+                        <h1 class="mb-4 display-5 font-weight-semi-bold">Vogue</h1>
                         <p>Explore top-quality backpacks designed for every adventure. Stylish, durable, and ready to carry your world.</p>
                         <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>123 Street, New York, USA</p>
                         <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>Vogue.info@gmail.com</p>
@@ -128,13 +118,10 @@
                     </div>
 
                 </div>
-
                 <!-- Footer End -->
-
 
                 <!-- Back to Top -->
                 <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
-
 
                 <!-- JavaScript Libraries -->
                 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -148,10 +135,8 @@
 
                 <!-- Template Javascript -->
                 <script src="js/main.js"></script>
-
             </div>
         </div>
     </form>
-
 </body>
 </html>
