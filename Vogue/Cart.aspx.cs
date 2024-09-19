@@ -37,8 +37,6 @@ namespace Vogue
 
         protected void repeat_cart_product_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            Label Cidlbl = (Label)e.Item.FindControl("cartid");
-
             int uid = Convert.ToInt32(Session["Customer"]);
             int pid = Convert.ToInt32(e.CommandArgument.ToString());
             int Qty = obj.QtyOfCartProducts(uid, pid);
@@ -57,8 +55,19 @@ namespace Vogue
 
                 case "minus":
                     Qty--;
-                    totalprice = Qty * unitprice;
-                    obj.UpdateCartByProductAndUser(pid, Qty, uid, totalprice);
+                    if(Qty < 1)
+                    {
+                        obj.DeleteFromCartByProductAndUser(pid, uid);
+                    }
+                    else
+                    {
+                        totalprice = Qty * unitprice;
+                        obj.UpdateCartByProductAndUser(pid, Qty, uid, totalprice);
+                    }
+                    break;
+
+                case "remove":
+                    obj.DeleteFromCartByProductAndUser(pid, uid);
                     break;
             }
             Response.Redirect("Cart.aspx");

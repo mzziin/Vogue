@@ -65,7 +65,7 @@
     </div>
     <!-- Page Header End -->
 
-    <div class="container-fluid pt-2">
+    <div class="container-fluid">
         <div class="row px-xl-5">
             <div class="col-lg-8 table-responsive mb-5">
                 <table class="table table-bordered text-center mb-0">
@@ -83,9 +83,8 @@
                         <asp:Repeater ID="repeat_cart_product" runat="server" OnItemCommand="repeat_cart_product_ItemCommand">
                         <ItemTemplate>
                         <tr>
-                            <td class="align-middle">
+                            <td class=" pl-5 text-left">
                                 <asp:Image ID="Image1" ImageUrl='<%# Eval("ImageUrl") %>' runat="server"  style="width: 50px;"/>
-                                
                                 <asp:Label runat="server" ID="Label2" Text='<%# Eval("ProductName") %>'></asp:Label>
                                 <asp:Label runat="server" ID="cartid" Text='<%# Eval("CartId") %>' Visible="false"></asp:Label>
                             </td>
@@ -108,14 +107,9 @@
                             </td>
                             <td class="align-middle">
                                 <asp:Label runat="server" ID="totalprice" Text='<%# Eval("TotalPrice") %>'></asp:Label>
-                               
                             </td>
-                            <td class="align-middle">
-                                <button class="btn btn-sm btn-primary">
-                                    <i class="fa fa-times">
-                                       
-                                    </i>
-                                </button>
+                            <td class="align-middle">                                    
+                                <asp:Button runat="server" CommandName="remove" CommandArgument='<%# Eval("ProductId") %>' ID="rmbtn" Text="X" CssClass="btn btn-primary" />
                             </td>
                         </tr>
                         </ItemTemplate>

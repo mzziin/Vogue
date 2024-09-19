@@ -94,5 +94,17 @@ namespace BLL
                 return true;
             }
         }
+        public bool DeleteFromCartByProductAndUser(int pid, int uid)
+        {
+            int i = obj.Delete(pid, uid);
+            if(i != 1)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }

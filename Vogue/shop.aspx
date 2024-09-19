@@ -76,7 +76,7 @@
                             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
                                 <div class="card product-item border-0 mb-4">
                                     <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                        <asp:Image ID="Image1" CssClass="img-fluid w-100" runat="server" ImageUrl='<%# Eval("ImageUrl") %>' />
+                                        <asp:Image ID="Image1" CssClass="img-fluid" style="width:100%; height:300px; object-fit:cover;" runat="server" ImageUrl='<%# Eval("ImageUrl") %>' />
                                         <%--<img class="img-fluid w-100" src='<%# Eval("ImageUrl") %>' alt="">--%>
                                     </div>
                                     <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
