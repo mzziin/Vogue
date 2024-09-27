@@ -14,7 +14,6 @@ namespace BLL
         public void DeleteProduct(int pid)
         {
             int i = obj.Delete(pid);
-            
         }
         public DataSet Gridbind()
         {

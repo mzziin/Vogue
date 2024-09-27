@@ -32,14 +32,15 @@ namespace Vogue
                 repeat_cart_product.DataBind();
                 decimal sumprice = obj.GetTotalPrice(uid);
                 totalsum.Text = sumprice.ToString();
+                totalsum1.Text = sumprice.ToString();
             }
         }
 
         protected void repeat_cart_product_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            int uid = Convert.ToInt32(Session["Customer"]);
-            int pid = Convert.ToInt32(e.CommandArgument.ToString());
-            int Qty = obj.QtyOfCartProducts(uid, pid);
+            int uId = Convert.ToInt32(Session["Customer"]);
+            int pId = Convert.ToInt32(e.CommandArgument.ToString());
+            int Qty = obj.QtyOfCartProducts(uId, pId);
 
             Label unitlbl = (Label)e.Item.FindControl("unitlabel");
             decimal unitprice = Convert.ToDecimal(unitlbl.Text);
@@ -50,27 +51,32 @@ namespace Vogue
                 case "plus":
                     Qty++;
                     totalprice = Qty * unitprice;
-                    obj.UpdateCartByProductAndUser(pid, Qty, uid, totalprice);
+                    obj.UpdateCartByProductAndUser(pId, Qty, uId, totalprice);
                     break;
 
                 case "minus":
                     Qty--;
                     if(Qty < 1)
                     {
-                        obj.DeleteFromCartByProductAndUser(pid, uid);
+                        obj.DeleteFromCartByProductAndUser(pId, uId);
                     }
                     else
                     {
                         totalprice = Qty * unitprice;
-                        obj.UpdateCartByProductAndUser(pid, Qty, uid, totalprice);
+                        obj.UpdateCartByProductAndUser(pId, Qty, uId, totalprice);
                     }
                     break;
 
                 case "remove":
-                    obj.DeleteFromCartByProductAndUser(pid, uid);
+                    obj.DeleteFromCartByProductAndUser(pId, uId);
                     break;
             }
             Response.Redirect("Cart.aspx");
+        }
+
+        protected void checkoutbtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Checkout.aspx");
         }
     }
 }

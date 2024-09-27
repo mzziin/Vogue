@@ -83,7 +83,9 @@
                                 </button>
                                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                                     <div class="navbar-nav mr-auto py-0">
-                                        <a href="index.aspx" class="nav-item nav-link">Home</a> <a href="shop.aspx" class="nav-item nav-link">Shop</a> <a href="contact.aspx" class="nav-item nav-link">Contact</a>
+                                        <a href="index.aspx" class="nav-item nav-link">Home</a> 
+                                        <a href="shop.aspx" class="nav-item nav-link">Shop</a> 
+                                        <a href="contact.aspx" class="nav-item nav-link">Contact</a>
                                     </div>
                                     <div class="navbar-nav ml-auto py-0">
                                         <a href="Login.aspx" class="nav-item nav-link">

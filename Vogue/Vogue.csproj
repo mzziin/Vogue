@@ -72,7 +72,7 @@
     <Content Include="AdminProductUpdate.aspx" />
     <Content Include="Cart.aspx" />
     <Content Include="Checkout.aspx" />
-    <Content Include="contact.aspx" />
+    <Content Include="Contact.aspx" />
     <Content Include="css\style.css" />
     <Content Include="css\style.min.css" />
     <Content Include="img\backpack1.png" />
@@ -91,7 +91,7 @@
     <Content Include="img\vendor-6.jpg" />
     <Content Include="img\vendor-7.jpg" />
     <Content Include="img\vendor-8.jpg" />
-    <Content Include="index.aspx" />
+    <Content Include="Index.aspx" />
     <Content Include="js\main.js" />
     <Content Include="lib\easing\easing.js" />
     <Content Include="lib\easing\easing.min.js" />
@@ -108,7 +108,7 @@
     <Content Include="Login.aspx" />
     <Content Include="ProductDetail.aspx" />
     <Content Include="Register.aspx" />
-    <Content Include="shop.aspx" />
+    <Content Include="Shop.aspx" />
     <Content Include="style.css" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -148,19 +148,19 @@
     <Compile Include="Checkout.aspx.designer.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
     </Compile>
-    <Compile Include="contact.aspx.cs">
-      <DependentUpon>contact.aspx</DependentUpon>
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="contact.aspx.designer.cs">
-      <DependentUpon>contact.aspx</DependentUpon>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="index.aspx.cs">
-      <DependentUpon>index.aspx</DependentUpon>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="index.aspx.designer.cs">
-      <DependentUpon>index.aspx</DependentUpon>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -184,12 +184,12 @@
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="shop.aspx.cs">
-      <DependentUpon>shop.aspx</DependentUpon>
+    <Compile Include="Shop.aspx.cs">
+      <DependentUpon>Shop.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="shop.aspx.designer.cs">
-      <DependentUpon>shop.aspx</DependentUpon>
+    <Compile Include="Shop.aspx.designer.cs">
+      <DependentUpon>Shop.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
