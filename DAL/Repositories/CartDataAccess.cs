@@ -123,6 +123,22 @@ namespace DAL.Repositories
             return i;
         }
 
+        public int DeleteByUser(int uid)
+        {
+            int i;
+            string query = "delete from Cart where UserId=@uid";
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@uid", uid);
+
+                    i = cmd.ExecuteNonQuery();
+                }
+            }
+            return i;
+        }
         public int Delete(int pid, int uid)
         {
             int i;

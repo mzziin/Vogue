@@ -84,7 +84,7 @@
                         </div>
                         <div class="col-md-6 form-group">
                             <label>Country</label>
-                            <asp:DropDownList runat="server" CssClass="custom-select">
+                            <asp:DropDownList runat="server" ID="country" CssClass="custom-select">
                                 <asp:ListItem Text="United States" Value="Unites States"></asp:ListItem>
                                 <asp:ListItem Text="India" Value="India"></asp:ListItem>
                                 <asp:ListItem Text="Albenia" Value="Albenia"></asp:ListItem>
@@ -117,7 +117,7 @@
                     </div>
                     <div class="card-body">
 
-                            <asp:RadioButtonList runat="server" ID="PaymentMethod" CssClass="custom-control">
+                            <asp:RadioButtonList runat="server" ID="payment" CssClass="custom-control">
                                 <Items>
                                     <asp:ListItem Text="RazorPay" CssClass="mr-5" Value="RazorPay" />
                                     <asp:ListItem Text="Cash on Delivery" Value="COD" />
@@ -139,7 +139,7 @@
                         </div>--%>
                     </div>
                     <div class="card-footer border-secondary bg-transparent">
-                        <button class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3">Place Order</button>
+                        <asp:Button runat="server" ID="orderbtn" CssClass="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3" Text="Place Order" OnClick="orderbtn_Click"/>
                     </div>
                 </div>
             </div>

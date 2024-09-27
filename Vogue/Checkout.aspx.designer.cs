@@ -87,6 +87,15 @@ namespace Vogue
         protected global::System.Web.UI.WebControls.TextBox address2;
 
         /// <summary>
+        /// country control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList country;
+
+        /// <summary>
         /// city control.
         /// </summary>
         /// <remarks>
@@ -114,12 +123,21 @@ namespace Vogue
         protected global::System.Web.UI.WebControls.TextBox zipcode;
 
         /// <summary>
-        /// PaymentMethod control.
+        /// payment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList PaymentMethod;
+        protected global::System.Web.UI.WebControls.RadioButtonList payment;
+
+        /// <summary>
+        /// orderbtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button orderbtn;
     }
 }
