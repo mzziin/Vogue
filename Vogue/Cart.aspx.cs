@@ -12,6 +12,7 @@ namespace Vogue
     public partial class Cart : System.Web.UI.Page
     {
         CartService obj = new CartService();
+        ProductService productService = new ProductService();
         protected void Page_Load(object sender, EventArgs e)
         {
             int uid = Convert.ToInt32(Session["customer"]);
@@ -50,6 +51,11 @@ namespace Vogue
             {
                 case "plus":
                     Qty++;
+                    int stock = productService.GetStock(pId);
+                    if (Qty > stock)
+                    {
+                        break;
+                    }
                     totalprice = Qty * unitprice;
                     obj.UpdateCartByProductAndUser(pId, Qty, uId, totalprice);
                     break;

@@ -13,6 +13,7 @@ namespace Vogue
     {
         CartService cartService = new CartService();
         OrderService orderService = new OrderService();
+        ProductService productService = new ProductService();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["customer"] != null)
@@ -49,12 +50,15 @@ namespace Vogue
             int orderId = orderService.AddOrder(uid, date.ToString("dd-MM-yyyy"), sumprice, orderStatus, paymentMethod, address);
 
             List<CartEntity> cartList = cartService.ListAllProducts(uid);
+            
             foreach (var cartItem in cartList)
             {
                 orderService.AddOrderDetails(orderId, cartItem.ProductId, cartItem.Quantity, cartItem.UnitPrice, cartItem.TotalPrice);
+                productService.UpdateProductStock(cartItem.ProductId, cartItem.Quantity);
             }
-            cartService.DeleteCartOfUser(uid);
 
+            cartService.DeleteCartOfUser(uid);
+            
             Response.Redirect("index.aspx");
         }
     }

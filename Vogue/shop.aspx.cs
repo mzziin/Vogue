@@ -11,12 +11,12 @@ namespace Vogue
 {
     public partial class shop : System.Web.UI.Page
     {
-        ProductService obj = new ProductService();
+        ProductService productService = new ProductService();
         protected void Page_Load(object sender, EventArgs e)
         {
             string Cid = Request.QueryString["CategoryId"];
 
-            repeat_category.DataSource = obj.GetCategory();
+            repeat_category.DataSource = productService.GetCategory();
             repeat_category.DataBind();
 
             if (Session["customer"] != null)
@@ -36,13 +36,13 @@ namespace Vogue
             {
                 if(Cid != null)
                 {
-                    List<ProductEntity> products = obj.ListAllProducts(Cid);
+                    List<ProductEntity> products = productService.ListAllProducts(Cid);
                     repeat_product.DataSource = products;
                     repeat_product.DataBind();
                 }
                 else
                 {
-                    List<ProductEntity> products = obj.ListAllProducts();
+                    List<ProductEntity> products = productService.ListAllProducts();
                     repeat_product.DataSource = products;
                     repeat_product.DataBind();
                 }

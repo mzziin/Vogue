@@ -11,27 +11,49 @@ namespace BLL
 {
     public class ProductService
     {
-        ProductDataAccess obj = new ProductDataAccess();
+        ProductDataAccess productDataAccess = new ProductDataAccess();
         public List<ProductEntity> ListAllProducts()
         {
-            var products =  obj.GetAllProducts();
+            var products =  productDataAccess.GetAllProducts();
             return products;
         }
 
         public List<ProductEntity> ListAllProducts(string Cid)
         {
              
-            var products = obj.GetAllProductsOnCategory(Convert.ToInt32(Cid));
+            var products = productDataAccess.GetAllProductsOnCategory(Convert.ToInt32(Cid));
             return products;
         }
         public ProductEntity ListProduct(int id)
         {
-            var product = obj.GetProductById(id);
+            var product = productDataAccess.GetProductById(id);
             return product;
+        }
+        public void DeleteProduct(int pid)
+        {
+            productDataAccess.Delete(pid);
+        }
+        public void UpdateProductStock(int pid, int qty)
+        {
+            ProductEntity product = productDataAccess.GetProductById(pid);
+            qty = product.Stock - qty;
+            if(qty == 0)
+            {
+                DeleteProduct(pid);
+            }
+            else
+            {
+                productDataAccess.UpdateStock(pid, qty);
+            }
+        }
+        public int GetStock(int pId)
+        {
+            ProductEntity product = productDataAccess.GetProductById(pId);
+            return product.Stock;
         }
         public DataTable GetCategory()
         {
-            DataTable dt = obj.GetCategories();
+            DataTable dt = productDataAccess.GetCategories();
             return dt;
         }
     }

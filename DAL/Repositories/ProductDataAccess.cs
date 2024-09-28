@@ -51,10 +51,10 @@ namespace DAL.Repositories
             string query = "Select * from Products where CategoryId=@cid";
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
-                conn.Open();
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@cid", cid);
+                    conn.Open();
                     SqlDataReader sdr = cmd.ExecuteReader();
                     while (sdr.Read())
                     {
@@ -80,10 +80,10 @@ namespace DAL.Repositories
             ProductEntity product = null;
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
-                conn.Open();
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@id", id);
+                    conn.Open();
                     SqlDataReader sdr = cmd.ExecuteReader();
                     
                     while (sdr.Read())
@@ -116,6 +116,34 @@ namespace DAL.Repositories
                 sdr.Fill(dt);
             }
             return dt;
+        }
+
+        public void Delete(int pid)
+        {
+            string query = "Delete from Products where ProductId=@pid";
+            using(SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                using(SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@pid", pid);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        public void UpdateStock(int pid, int qty)
+        {
+            string query = "update Products set Stock=@stock where ProductId=@pid";
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@stock", qty);
+                    cmd.Parameters.AddWithValue("@pid", pid);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
     }
 }
