@@ -20,7 +20,7 @@ namespace DAL.Repositories
         public List<ProductEntity> GetAllProducts()
         {
             List<ProductEntity> products = new List<ProductEntity>(); // list of type ProductEntity
-            string query = "Select * from Products";
+            string query = "Select * from Products where Stock > 0";
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
                 conn.Open();
@@ -48,7 +48,7 @@ namespace DAL.Repositories
         public List<ProductEntity> GetAllProductsOnCategory(int cid)
         {
             List<ProductEntity> products = new List<ProductEntity>(); // list of type ProductEntity
-            string query = "Select * from Products where CategoryId=@cid";
+            string query = "Select * from Products where CategoryId=@cid and Stock > 0";
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
                 using (SqlCommand cmd = new SqlCommand(query, conn))

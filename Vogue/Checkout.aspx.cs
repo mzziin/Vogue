@@ -57,6 +57,15 @@ namespace Vogue
                 productService.UpdateProductStock(cartItem.ProductId, cartItem.Quantity);
             }
 
+            // deleting product from table will cause error in orderdetail table since it contain foreign key to productid
+           /* List<ProductEntity> products = productService.ListAllProducts();
+            foreach(var product in products)
+            {
+                if(product.Stock == 0)
+                {
+                    productService.DeleteProduct(product.ProductId);
+                }
+            }*/
             cartService.DeleteCartOfUser(uid);
             
             Response.Redirect("index.aspx");

@@ -5,51 +5,56 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BLL;
-using System.Data;
 
 namespace Vogue
 {
-    public partial class AdminPanal : System.Web.UI.Page
+    public partial class AdminP : System.Web.UI.Page
     {
-        AdminServices obj = new AdminServices();
+        AdminServices adminServices = new AdminServices();
+        ProductService productService = new ProductService();
+        public void BindData()
+        {
+            productRepeater.DataSource = adminServices.Gridbind();
+            productRepeater.DataBind();
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["vendor"] == null)
             {
                 Response.Redirect("Login.aspx");
             }
-            BindData();
-        }
-
-        public void BindData()
-        {
-            DataSet ds = obj.Gridbind();
-            GridView1.DataSource = ds;
-            GridView1.DataBind();
-        }
-
-        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        {
-            int i = e.RowIndex;
-            int getid = Convert.ToInt32(GridView1.DataKeys[i].Value);
-            obj.DeleteProduct(getid);
-            BindData();
-        }
-
-        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            if (e.CommandName == "ActionCommand")
+            if (!IsPostBack)
             {
-                int rowIndex = Convert.ToInt32(e.CommandArgument);
-                GridViewRow row = GridView1.Rows[rowIndex];
+                BindData();
+            }
+            
+        }
 
-                Session["Pid"] = row.Cells[3].Text; // Data from the first column
-
+        protected void editBtn_Command(object sender, CommandEventArgs e)
+        {
+            if(e.CommandName == "Edit")
+            {
+                string pId = e.CommandArgument.ToString();
+                Session["Pid"] = pId;
                 Response.Redirect("AdminProductUpdate.aspx");
             }
         }
 
-        protected void LinkButton2_Click(object sender, EventArgs e)
+        protected void deleteBtn_Command(object sender, CommandEventArgs e)
+        {
+            if (e.CommandName == "Remove")
+            {
+                int pId = Convert.ToInt32(e.CommandArgument.ToString());
+                productService.UpdateProductStock(Convert.ToInt32(pId), 0);
+                adminServices.MarkAsOutOfStock(Convert.ToInt32(pId));
+
+                //deleting product causes issue in other tables that references it
+                /*adminServices.DeleteProduct(Convert.ToInt32(pId));*/
+                BindData();
+            }
+        }
+
+        protected void logoutBtn_Click(object sender, EventArgs e)
         {
             Session["vendor"] = null;
             Response.Redirect("Login.aspx");

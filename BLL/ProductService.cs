@@ -37,14 +37,11 @@ namespace BLL
         {
             ProductEntity product = productDataAccess.GetProductById(pid);
             qty = product.Stock - qty;
-            if(qty == 0)
-            {
-                DeleteProduct(pid);
-            }
-            else
-            {
-                productDataAccess.UpdateStock(pid, qty);
-            }
+            productDataAccess.UpdateStock(pid, qty);
+        }
+        public void StockOutProduct(int pid)
+        {
+            productDataAccess.UpdateStock(pid, 0); ;
         }
         public int GetStock(int pId)
         {

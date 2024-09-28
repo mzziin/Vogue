@@ -1,75 +1,95 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminPanel.aspx.cs" Inherits="Vogue.AdminPanal" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminPanel.aspx.cs" Inherits="Vogue.AdminP" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
-    <style type="text/css">
-        .auto-style1 {
-            width: 100%;
-        }
-    </style>
+    <title>Vogue</title>
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet"/>
+
+     <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet"/>
+
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <table class="auto-style1">
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>
-                        <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">Logout</asp:LinkButton>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/AdminAddProduct.aspx">Add Item</asp:LinkButton>
-                    </td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:GridView ID="GridView1" runat="server" CellPadding="4" DataKeyNames="ProductId" ForeColor="#333333" GridLines="None"  OnRowDeleting="GridView1_RowDeleting" OnRowCommand="GridView1_RowCommand" Width="908px">
-                            <AlternatingRowStyle BackColor="White" />
-                            <Columns>
-                                <asp:TemplateField>
-                                    <EditItemTemplate>
-                                        <asp:TextBox ID="TextBox1" runat="server" Tooltip='<%# Eval("ImageUrl") %>'></asp:TextBox>
-                                    </EditItemTemplate>
-                                    <ItemTemplate>
-                                        <asp:Image ID="Image1" runat="server" AlternateText='<%# Eval("ImageUrl") %>' Height="124px" ImageUrl='<%# Eval("ImageUrl") %>' Width="121px" />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:CommandField ShowDeleteButton="True" />
-                                <asp:ButtonField Text="Edit" CommandName="ActionCommand"/>
-                            </Columns>
-                            <EditRowStyle BackColor="#7C6F57" />
-                            <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-                            <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-                            <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-                            <RowStyle BackColor="#E3EAEB" />
-                            <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
-                            <SortedAscendingCellStyle BackColor="#F8FAFA" />
-                            <SortedAscendingHeaderStyle BackColor="#246B61" />
-                            <SortedDescendingCellStyle BackColor="#D4DFE1" />
-                            <SortedDescendingHeaderStyle BackColor="#15524A" />
-                        </asp:GridView>
-                    </td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-            </table>
+        <div class="container">
+            <main role="main" class="py-3">
+                <div>
+                    <div class="row justify-content-between pt-3">
+                        <h1 class="text-primary font-weight-semi-bold">Vogue</h1>
+                        <h2 class="text-center text-dark pt-1">Admin Panal</h2>
+                        <div class="pt-1">
+                            <asp:Button runat="server" ID="logoutBtn" Text="Logout" CssClass="btn btn-primary rounded" OnClick="logoutBtn_Click" />
+                        </div>
+                        
+                    </div>
+                    <div class="row mt-5 py-2">
+                        <div class="col-6">
+                            <h2 class="text-dark">Products</h2>
+                        </div>
+                        <div class="col-6 text-right">
+                            <a href="AdminAddProduct.aspx" class="btn btn-outline-primary rounded">
+                                +
+                            </a>
+                        </div>
+                    </div>
+
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Price</th>
+                                <th>Stock</th>
+                                <th>CategoryId</th>
+                                <th>Image</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <asp:Repeater runat="server" ID="productRepeater">
+                                <ItemTemplate>
+                                    <tr>
+                                        <td>
+                                            <%# Eval("ProductId") %>
+                                        </td>
+                                        <td>
+                                            <%# Eval("Name") %>
+                                        </td>
+                                        <td>
+                                            <%# Eval("Description") %>
+                                        </td>
+                                        <td>
+                                            <%# Eval("Price") %>
+                                        </td>
+                                        <td>
+                                            <%# Eval("Stock") %>
+                                        </td>
+                                        <td>
+                                           <%# Eval("CategoryId") %>
+                                        </td>
+                                        <td style="width:200px;">
+                                            <asp:Image runat="server" ImageUrl='<%# Eval("ImageUrl") %>' CssClass="img-fluid" style="width:100%; height:150px; object-fit:cover;" />
+                                        </td>
+                                        <td>
+                                            <asp:LinkButton runat="server" CssClass="btn btn-outline-primary" CommandName="Edit" CommandArgument='<%# Eval("ProductId") %>' OnCommand="editBtn_Command" ID="editBtn" Text="Edit"/>
+                                        </td>
+                                        <td style="width:120px;">
+                                            <asp:LinkButton runat="server" CssClass="btn btn-outline-primary" CommandName="Remove" CommandArgument='<%# Eval("ProductId") %>' OnCommand="deleteBtn_Command" ID="deleteBtn" Text="Stock out" />
+                                        </td>
+                                    </tr>
+                                </ItemTemplate>
+                            </asp:Repeater>
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </main>
         </div>
     </form>
 </body>

@@ -11,7 +11,7 @@ namespace Vogue
 {
     public partial class ProductDetail : System.Web.UI.Page
     {
-        ProductService obj = new ProductService();
+        ProductService productService = new ProductService();
         CartService obj2 = new CartService();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,8 +23,8 @@ namespace Vogue
             }
             else
             {
-                Button logoutbtn = (Button)Master.FindControl("logoutBtn");
-                logoutbtn.Visible = false;
+                Button logoutBtn = (Button)Master.FindControl("logoutBtn");
+                logoutBtn.Visible = false;
                 loginlabel.Visible = true;
                 registerlabel.Visible = true;
             }
@@ -33,7 +33,7 @@ namespace Vogue
                 if (pid != null)
                 {
                     int id = Convert.ToInt32(pid);
-                    ProductEntity product = obj.ListProduct(id);
+                    ProductEntity product = productService.ListProduct(id);
                     name.Text = product.Name;
                     description.Text = product.Description;
                     price.Text = product.Price.ToString();
@@ -53,19 +53,23 @@ namespace Vogue
             else
             {
                 int qty=1;
-                int uid = Convert.ToInt32(Session["Customer"]);
-                int pid = Convert.ToInt32(Request.QueryString["ProductId"]);
-                ProductEntity product = obj.ListProduct(pid);
-                int count = obj2.QtyOfCartProducts( uid, pid);
-                if(count == 0)
+                int uId = Convert.ToInt32(Session["Customer"]);
+                int pId = Convert.ToInt32(Request.QueryString["ProductId"]);
+                ProductEntity product = productService.ListProduct(pId);
+                int productCountInCart = obj2.QtyOfCartProducts( uId, pId);
+                if(productCountInCart == 0)
                 {
-                    obj2.AddToCart(uid, pid, qty, product.Price, product.Price, product.Name, product.ImageUrl);
+                    obj2.AddToCart(uId, pId, qty, product.Price, product.Price, product.Name, product.ImageUrl);
                 }
                 else
                 {
-                    qty = count + 1;
-                    decimal totalprice = qty * product.Price;
-                    obj2.UpdateCartByProductAndUser(pid, qty, uid, totalprice);
+                    int productStock = productService.GetStock(pId);
+                    if (productCountInCart != productStock)
+                    {
+                        qty = productCountInCart + 1;
+                        decimal totalprice = qty * product.Price;
+                        obj2.UpdateCartByProductAndUser(pId, qty, uId, totalprice);
+                    }
                 }
                 Response.Redirect("Cart.aspx");
             }

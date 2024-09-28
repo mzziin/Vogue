@@ -11,7 +11,7 @@ namespace Vogue
 {
     public partial class Cart : System.Web.UI.Page
     {
-        CartService obj = new CartService();
+        CartService cartService = new CartService();
         ProductService productService = new ProductService();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,10 +28,10 @@ namespace Vogue
             }
             if (!IsPostBack)
             {
-                List<CartEntity> cart = obj.ListAllProducts(uid);
+                List<CartEntity> cart = cartService.ListAllProducts(uid);
                 repeat_cart_product.DataSource = cart;
                 repeat_cart_product.DataBind();
-                decimal sumprice = obj.GetTotalPrice(uid);
+                decimal sumprice = cartService.GetTotalPrice(uid);
                 totalsum.Text = sumprice.ToString();
                 totalsum1.Text = sumprice.ToString();
             }
@@ -41,7 +41,7 @@ namespace Vogue
         {
             int uId = Convert.ToInt32(Session["Customer"]);
             int pId = Convert.ToInt32(e.CommandArgument.ToString());
-            int Qty = obj.QtyOfCartProducts(uId, pId);
+            int Qty = cartService.QtyOfCartProducts(uId, pId);
 
             Label unitlbl = (Label)e.Item.FindControl("unitlabel");
             decimal unitprice = Convert.ToDecimal(unitlbl.Text);
@@ -54,27 +54,28 @@ namespace Vogue
                     int stock = productService.GetStock(pId);
                     if (Qty > stock)
                     {
+                        // todo pass notification
                         break;
                     }
                     totalprice = Qty * unitprice;
-                    obj.UpdateCartByProductAndUser(pId, Qty, uId, totalprice);
+                    cartService.UpdateCartByProductAndUser(pId, Qty, uId, totalprice);
                     break;
 
                 case "minus":
                     Qty--;
                     if(Qty < 1)
                     {
-                        obj.DeleteFromCartByProductAndUser(pId, uId);
+                        cartService.DeleteFromCartByProductAndUser(pId, uId);
                     }
                     else
                     {
                         totalprice = Qty * unitprice;
-                        obj.UpdateCartByProductAndUser(pId, Qty, uId, totalprice);
+                        cartService.UpdateCartByProductAndUser(pId, Qty, uId, totalprice);
                     }
                     break;
 
                 case "remove":
-                    obj.DeleteFromCartByProductAndUser(pId, uId);
+                    cartService.DeleteFromCartByProductAndUser(pId, uId);
                     break;
             }
             Response.Redirect("Cart.aspx");

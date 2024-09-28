@@ -10,19 +10,21 @@ namespace BLL
 {
     public class AdminServices
     {
-        AdminDataAccess obj = new AdminDataAccess();
+        AdminDataAccess adminDataAccess = new AdminDataAccess();
+        ProductService productService = new ProductService();
+        CartService cartService = new CartService();
         public void DeleteProduct(int pid)
         {
-            int i = obj.Delete(pid);
+            int i = adminDataAccess.Delete(pid);
         }
         public DataSet Gridbind()
         {
-            DataSet ds = obj.Gridbind_Fun();
+            DataSet ds = adminDataAccess.Gridbind_Fun();
             return ds;
         }
         public DataTable GetCategoryItems()
         {
-            DataTable ds = obj.GetCategories();
+            DataTable ds = adminDataAccess.GetCategories();
             return ds;
         }
         public void AddProduct(string name , string desc, string price, string stock, string imageurl, string categoryid)
@@ -30,14 +32,19 @@ namespace BLL
             decimal convertedPrice = Convert.ToDecimal(price);
             int convertedStock = Convert.ToInt32(stock);
             int convertedCategoryid = Convert.ToInt32(categoryid);
-            obj.Add(name, desc, convertedPrice, convertedStock, imageurl, convertedCategoryid);
+            adminDataAccess.Add(name, desc, convertedPrice, convertedStock, imageurl, convertedCategoryid);
         }
         public void UpdateProduct(string name, string desc, string price, string stock, string imageurl, string categoryid, int pid)
         {
             decimal convertedPrice = Convert.ToDecimal(price);
             int convertedStock = Convert.ToInt32(stock);
             int convertedCategoryid = Convert.ToInt32(categoryid);
-            obj.Update(name, desc, convertedPrice, convertedStock, imageurl, convertedCategoryid, pid);
+            adminDataAccess.Update(name, desc, convertedPrice, convertedStock, imageurl, convertedCategoryid, pid);
+        }
+        public void MarkAsOutOfStock(int pId)
+        {
+            productService.StockOutProduct(pId);
+            cartService.DeleteFromCartByProduct(pId);
         }
     }
 }

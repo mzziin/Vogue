@@ -30,6 +30,12 @@ namespace BLL
             products = cartDataAccess.Read(Uid);
             return products;
         }
+        public List<CartEntity> ListAllProductsInStock(int Uid)
+        {
+            List<CartEntity> products;
+            products = cartDataAccess.ReadProductsInStock(Uid);
+            return products;
+        }
         public bool UpdateCart(int Cid, int qty)
         {
             int i = cartDataAccess.Update(Cid, qty);
@@ -98,6 +104,18 @@ namespace BLL
         {
             int i = cartDataAccess.Delete(pid, uid);
             if(i != 1)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        public bool DeleteFromCartByProduct(int pid)
+        {
+            int i = cartDataAccess.DeleteByProduct(pid);
+            if (i != 1)
             {
                 return false;
             }

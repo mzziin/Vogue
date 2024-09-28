@@ -139,6 +139,22 @@ namespace DAL.Repositories
             }
             return i;
         }
+        public int DeleteByProduct(int pId)
+        {
+            int i;
+            string query = "delete from Cart where ProductId=@pId";
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@pId", pId);
+
+                    i = cmd.ExecuteNonQuery();
+                }
+            }
+            return i;
+        }
         public int Delete(int pid, int uid)
         {
             int i;
@@ -161,6 +177,38 @@ namespace DAL.Repositories
             List<CartEntity> cartProducts = new List<CartEntity>();
             
             string query = "select * from Cart where UserId=@uid";
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@uid", Uid);
+                    SqlDataReader sdr = cmd.ExecuteReader();
+                    while (sdr.Read())
+                    {
+                        CartEntity cartItem = new CartEntity
+                        {
+                            CartId = Convert.ToInt32(sdr["CartId"]),
+                            UserId = Convert.ToInt32(sdr["UserId"]),
+                            ProductId = Convert.ToInt32(sdr["ProductId"]),
+                            Quantity = Convert.ToInt32(sdr["Quantity"]),
+                            UnitPrice = Convert.ToInt32(sdr["UnitPrice"]),
+                            TotalPrice = Convert.ToInt32(sdr["TotalPrice"]),
+                            ProductName = sdr["ProductName"].ToString(),
+                            ImageUrl = sdr["ImageUrl"].ToString()
+                        };
+                        cartProducts.Add(cartItem);
+                    }
+                }
+            }
+            return cartProducts;
+        }
+
+        public List<CartEntity> ReadProductsInStock(int Uid)
+        {
+            List<CartEntity> cartProducts = new List<CartEntity>();
+       
+            string query = "select * from Cart where UserId=@uid and ProductId IN (select ProductId from Products where Stock > 0) ";
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
                 conn.Open();
