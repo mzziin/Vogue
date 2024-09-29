@@ -69,7 +69,7 @@
   <ItemGroup>
     <Content Include="AdminAddProduct.aspx" />
     <Content Include="AdminPanel.aspx" />
-    <Content Include="AdminProductUpdate.aspx" />
+    <Content Include="AdminUpdateProduct.aspx" />
     <Content Include="Cart.aspx" />
     <Content Include="Checkout.aspx" />
     <Content Include="Contact.aspx" />
@@ -127,12 +127,12 @@
     <Compile Include="AdminPanel.aspx.designer.cs">
       <DependentUpon>AdminPanel.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AdminProductUpdate.aspx.cs">
-      <DependentUpon>AdminProductUpdate.aspx</DependentUpon>
+    <Compile Include="AdminUpdateProduct.aspx.cs">
+      <DependentUpon>AdminUpdateProduct.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AdminProductUpdate.aspx.designer.cs">
-      <DependentUpon>AdminProductUpdate.aspx</DependentUpon>
+    <Compile Include="AdminUpdateProduct.aspx.designer.cs">
+      <DependentUpon>AdminUpdateProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cart.aspx.cs">
       <DependentUpon>Cart.aspx</DependentUpon>

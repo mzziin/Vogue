@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminAddProduct.aspx.cs" Inherits="Vogue.AdminAddP" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminUpdateProduct.aspx.cs" Inherits="Vogue.AdminUpdateProduct" %>
 
 <!DOCTYPE html>
 
@@ -6,13 +6,13 @@
 <head runat="server">
     <title>Vogue</title>
 
-     <!-- Customized Bootstrap Stylesheet -->
+    <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet"/>
 
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="container px-5">
+         <div class="container px-5">
 
             <div class="row">
                 <h1 class="font-weight-semi-bold text-primary py-3">Vogue</h1>
@@ -35,6 +35,16 @@
                 <div class="col-6 p-0 pr-4">
                     <label>Price</label>
                     <asp:TextBox TextMode="Number" ID="price" runat="server" CssClass="form-control border-dark"></asp:TextBox>
+
+                    <%--<asp:TextBox ID="price" runat="server" CssClass="form-control border-dark" />--%>
+                    <%--<asp:RegularExpressionValidator 
+                        ID="revFloatValidator" 
+                        runat="server" 
+                        ControlToValidate="price" 
+                        ErrorMessage="Please enter a valid float number."
+                        ValidationExpression="^[-+]?\d*\.?\d+$"
+                        ForeColor="Red" />--%>
+
                 </div>
                 <div class="col-6 p-0 pl-4">
                     <label>Stock</label>
@@ -56,7 +66,7 @@
             </div>
 
             <div class="row justify-content-center my-5">
-                <asp:Button runat="server" Text="Submit" Width="100px" ID="addBtn" CssClass="btn btn-primary rounded mr-3" OnClick="addBtn_Click" />
+                <asp:Button runat="server" Text="Update" Width="100px" ID="updateBtn" CssClass="btn btn-primary rounded mr-3" OnClick="updateBtn_Click" />
                 <asp:Button runat="server" Text="Cancel" Width="100px" ID="cancelBtn" CssClass="btn btn-primary rounded ml-3" OnClick="cancelBtn_Click" />               
             </div>
 

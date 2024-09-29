@@ -3,24 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="NavbarContent" runat="server">
     <div class="container-fluid">
         <div class="row border-top px-xl-5">
-            <div class="col-lg-3 d-none d-lg-block">
-                <a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; margin-top: -1px; padding: 0 30px;">
-                    <h6 class="m-0">Categories</h6>
-                    <i class="fa fa-angle-down text-dark"></i>
-                </a>
-                <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 1;">
-                    <div class="navbar-nav w-100 overflow-hidden">
-
-                        <a href="" class="nav-item nav-link">Shirts</a>
-                        <a href="" class="nav-item nav-link">Jeans</a>
-                        <a href="" class="nav-item nav-link">Tshirt</a>
-                        <a href="" class="nav-item nav-link">Pants</a>
-                        <a href="" class="nav-item nav-link">Jackets</a>
-                        <a href="" class="nav-item nav-link">Shoes</a>
-                    </div>
-                </nav>
-            </div>
-            <div class="col-lg-9">
+            
+            <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
                     <a href="" class="text-decoration-none d-block d-lg-none">
                         <h1 class="m-0 display-5 font-weight-semi-bold">Vogue</h1>
@@ -54,11 +38,10 @@
     <div class="container-fluid pt-5">
         <div class="row px-xl-5">
             <div class="col">
-                <asp:Image ID="Image1" runat="server" CssClass="w-75" />
-                
+                <asp:Image ID="Image1" runat="server" CssClass="w-75" />                
             </div>
 
-            <div class="col-lg-7 pt-5">
+            <div class="col-lg-8 pt-5">
                 <h3 class="font-weight-semi-bold">
                     <asp:Label runat="server" ID="name"></asp:Label>
                 </h3>
@@ -72,9 +55,9 @@
 
                 <div class="d-flex align-items-center mb-4 pt-2">
 
-                    <i class="fa fa-shopping-cart mr-1"></i>
+                    <i class="fa fa-shopping-cart mr-2"></i>
                     <asp:Label runat="server" ID="productId" Visible="false" Text=""></asp:Label>
-                    <asp:Button runat="server" ID="btn" Text="Add to cart" OnClick="btn_Click" class="btn btn-primary px-3" />
+                    <asp:Button runat="server" ID="btn" Text="Add to cart" OnClick="btn_Click" class="btn rounded btn-primary px-3" />
 
                 </div>
 

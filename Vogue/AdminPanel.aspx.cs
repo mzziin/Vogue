@@ -33,7 +33,7 @@ namespace Vogue
             {
                 string pId = e.CommandArgument.ToString();
                 Session["Pid"] = pId;
-                Response.Redirect("AdminProductUpdate.aspx");
+                Response.Redirect("AdminUpdateProduct.aspx");
             }
         }
 
