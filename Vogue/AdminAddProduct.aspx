@@ -1,75 +1,72 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminAddProduct.aspx.cs" Inherits="Vogue.AdminAddProduct" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminAddProduct.aspx.cs" Inherits="Vogue.AdminAddP" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Vogue</title>
-    <!-- Customized Bootstrap Stylesheet -->
+
+     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet"/>
 
     <style type="text/css">
         .auto-style1 {
-            width: 100%;
+            left: 15px;
+            top: -371px;
         }
     </style>
+
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <table class="auto-style1">
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Product Name</td>
-                    <td>
-                        <asp:TextBox ID="pname" runat="server"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Description</td>
-                    <td>
-                        <asp:TextBox ID="description" runat="server" Height="101px" TextMode="MultiLine" Width="272px"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Price</td>
-                    <td>
-                        <asp:TextBox ID="price" runat="server"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Stock</td>
-                    <td>
-                        <asp:TextBox ID="stock" runat="server"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Category</td>
-                    <td>
-                        <asp:DropDownList ID="DropDownList1" runat="server">
-                        </asp:DropDownList>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Image</td>
-                    <td>
-                        <asp:FileUpload ID="FileUpload1" runat="server" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>
-                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Insert" />
-                    </td>
-                </tr>
-            </table>
+        <div class="container px-5">
+
+            <div class="row">
+                <h1 class="font-weight-semi-bold text-primary py-3">Vogue</h1>
+            </div>
+            <div class="row">
+                <h2 class="text-dark">Add Product</h2>
+            </div>
+
+            <div class="row mb-3 p-1">
+                <label class="p-0">Name</label>
+                <asp:TextBox runat="server" ID="pname" CssClass="form-control border-dark"></asp:TextBox>
+            </div>
+
+            <div class="row mb-3 p-1">
+                <label class="p-0">Description</label>
+                <asp:TextBox runat="server" ID="description" TextMode="MultiLine" CssClass="form-control border-dark"></asp:TextBox>
+            </div>
+
+            <div class="row justify-content-between mb-4 p-1">
+                <div class="col-6 p-0 pr-4">
+                    <label>Price</label>
+                    <asp:TextBox TextMode="Number" ID="price" runat="server" CssClass="form-control border-dark"></asp:TextBox>
+                </div>
+                <div class="col-6 p-0 pl-4">
+                    <label>Stock</label>
+                <asp:TextBox runat="server" ID="stock" TextMode="Number" CssClass="form-control border-dark"></asp:TextBox>
+                </div>
+                
+            </div>
+
+            <div class="row justify-content-between mb-3 p-1">
+                <div class="col-6 p-0 pr-4">
+                    <label>Category</label>
+                    <asp:DropDownList runat="server" ID="categoryDropDown" CssClass="form-control border-dark">
+                    </asp:DropDownList>
+                </div>
+                <div class="col-6 p-0 pl-4">
+                    <label>Upload Image</label>
+                    <asp:FileUpload runat="server" ID="imgUpload" CssClass="form-control border-dark" />
+                </div>
+            </div>
+
+            <div class="row justify-content-center my-5">
+                <asp:Button runat="server" Text="Submit" Width="100px" ID="addBtn" CssClass="btn btn-primary rounded mr-3" OnClick="addBtn_Click" />
+                <asp:Button runat="server" Text="Cancel" Width="100px" ID="cancelBtn" CssClass="btn btn-primary rounded ml-3" OnClick="cancelBtn_Click" />               
+            </div>
+
         </div>
     </form>
 </body>

@@ -31,9 +31,8 @@
                             <h2 class="text-dark">Products</h2>
                         </div>
                         <div class="col-6 text-right">
-                            <a href="AdminAddProduct.aspx" class="btn btn-outline-primary rounded">
-                                +
-                            </a>
+                            <asp:Button runat="server" ID="addBtn" Text="+" CssClass="btn btn-outline-primary rounded" OnClick="addBtn_Click" />
+                          
                         </div>
                     </div>
 

@@ -19,14 +19,11 @@ namespace Vogue
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["vendor"] == null)
+            /*if (Session["vendor"] == null)
             {
                 Response.Redirect("Login.aspx");
-            }
-            if (!IsPostBack)
-            {
-                BindData();
-            }
+            }*/
+            BindData();
             
         }
 
@@ -58,6 +55,11 @@ namespace Vogue
         {
             Session["vendor"] = null;
             Response.Redirect("Login.aspx");
+        }
+
+        protected void addBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminAddProduct.aspx");
         }
     }
 }
