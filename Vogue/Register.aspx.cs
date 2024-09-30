@@ -10,14 +10,14 @@ namespace Vogue
 {
     public partial class Register : System.Web.UI.Page
     {
-        UserService obj = new UserService();
+        UserService userService = new UserService();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace( Request.QueryString["error"]))
             {
                 
-                error_msg_for_label.Visible = true;
-                error_msg_for_label.Text = Request.QueryString["error"];
+                error_msg.Visible = true;
+                error_msg.Text = Request.QueryString["error"];
             }
         }
 
@@ -31,16 +31,17 @@ namespace Vogue
             string Phone = phone.Text;
             string Address = address.Text;
             string Zip = zip.Text;
+
             List<string> labels = new List<string> {Name, Username, Email, Pwd, Role, Phone, Address, Zip };
             foreach(string i in labels){
                 if (string.IsNullOrWhiteSpace(i))
                 {
-                    error_msg_for_label.Text = "Enter all details correctly";
+                    error_msg.Text = "Enter all details correctly";
                     Response.Redirect("Register.aspx?error=Enter all details correctly");
                 }
             }
 
-            bool status = obj.InsertUser(Name, Username, Email, Pwd, Role, Phone, Address, Zip);
+            bool status = userService.InsertUser(Name, Username, Email, Pwd, Role, Phone, Address, Zip);
             if(status == true)
             {
                 Response.Redirect("Login.aspx");

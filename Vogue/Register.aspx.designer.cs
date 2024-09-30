@@ -24,15 +24,6 @@ namespace Vogue
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// error_msg_for_label control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label error_msg_for_label;
-
-        /// <summary>
         /// fullname control.
         /// </summary>
         /// <remarks>
@@ -40,15 +31,6 @@ namespace Vogue
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox fullname;
-
-        /// <summary>
-        /// uname control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uname;
 
         /// <summary>
         /// email control.
@@ -60,31 +42,13 @@ namespace Vogue
         protected global::System.Web.UI.WebControls.TextBox email;
 
         /// <summary>
-        /// pwd control.
+        /// address control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox pwd;
-
-        /// <summary>
-        /// lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl;
-
-        /// <summary>
-        /// role control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList role;
+        protected global::System.Web.UI.WebControls.TextBox address;
 
         /// <summary>
         /// phone control.
@@ -96,15 +60,6 @@ namespace Vogue
         protected global::System.Web.UI.WebControls.TextBox phone;
 
         /// <summary>
-        /// address control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox address;
-
-        /// <summary>
         /// zip control.
         /// </summary>
         /// <remarks>
@@ -114,13 +69,31 @@ namespace Vogue
         protected global::System.Web.UI.WebControls.TextBox zip;
 
         /// <summary>
-        /// btn1 control.
+        /// uname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn1;
+        protected global::System.Web.UI.WebControls.TextBox uname;
+
+        /// <summary>
+        /// pwd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox pwd;
+
+        /// <summary>
+        /// role control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList role;
 
         /// <summary>
         /// error_msg control.
@@ -130,5 +103,14 @@ namespace Vogue
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label error_msg;
+
+        /// <summary>
+        /// btn1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn1;
     }
 }

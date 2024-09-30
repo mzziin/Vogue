@@ -34,8 +34,8 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
      <!-- Page Header Start -->
-    <div class="container-fluid my-3">
-        <div class="d-flex flex-column align-items-start justify-content-center ml-5" style="min-height: 200px">
+    <div class="container-fluid my-3 my-sm-0">
+        <div class="d-flex flex-column align-items-start justify-content-center ml-lg-5 ml-sm-1" style="min-height: 200px">
             <h1 class="font-weight-semi-bold text-uppercase mb-3">Contact Us</h1>
             <div class="d-inline-flex">
                 <p class="m-0"><a href="index.aspx">Home</a></p>

@@ -12,28 +12,35 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <div class="login-page">
-                <div class="form">
-                    <form class="login-form form">
-                        <div class="text-left">
-                            <asp:Label runat="server" ID="uname">Username</asp:Label>
-                            <asp:TextBox runat="server" CssClass="mt-2 rounded form-control border" ID="username"></asp:TextBox>
-                        </div>
+        <div class="d-flex container justify-content-center align-items-center min-vh-100">
+            <div class="card rounded" style="width:24rem;">
+                <div class="card-body">
+                    <div class="row my-3 px-4">
+                        <h3 class="card-title font-weight-bold">Sign <span class="text-primary">In</span></h3>
+                    </div>
 
-                        <div class="text-left mt-2">
-                            <asp:Label runat="server" ID="Label1">Password</asp:Label>
-                            <asp:TextBox runat="server" CssClass="mt-2 rounded form-control border" TextMode="Password" ID="pwd"></asp:TextBox>
-                        </div>
-                        
-                        <asp:Button BackColor="#D19C97" CssClass="btn rounded btn-primary mt-3 font-weight-bold" runat="server" ID="btn1" Text="Login" OnClick="btn1_Click"/>
+                    <div class="row mb-3 px-4">
+                        <asp:TextBox runat="server" placeholder="Username" CssClass="form-control rounded" BorderColor="LightGray" ID="username"></asp:TextBox>
+                    </div>
 
+                    <div class="row mb-3 px-4">
+                        <asp:TextBox runat="server" placeholder="Password" TextMode="Password" CssClass="form-control rounded" BorderColor="LightGray" ID="pwd"></asp:TextBox>
+                    </div>
+
+                    <div class="row justify-content-center mb-2">
                         <asp:Label runat="server" ID="errorMsg" ForeColor="Red" Text="" Visible="false"></asp:Label>
-                        <p class="message">Not registered? <a href="Register.aspx">Create an account</a></p>
-                    </form>
+                    </div>
+
+                    <div class="row justify-content-center px-4 mb-3">
+                        <asp:Button runat="server" CssClass="btn btn-primary rounded font-weight-semi-bold form-control" ID="btn1" Text="Sign In" OnClick="btn1_Click" />
+                    </div>
+
+                    <div class="text-center">
+                        <p class="message">Not registered? <a href="Register.aspx">Sign Up</a></p>
+                    </div>
                 </div>
             </div>
-        <//div>
+        </div>
     </form>
 </body>
 </html>

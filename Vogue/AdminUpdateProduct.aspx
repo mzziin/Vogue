@@ -36,15 +36,6 @@
                     <label>Price</label>
                     <asp:TextBox TextMode="Number" ID="price" runat="server" CssClass="form-control border-dark"></asp:TextBox>
 
-                    <%--<asp:TextBox ID="price" runat="server" CssClass="form-control border-dark" />--%>
-                    <%--<asp:RegularExpressionValidator 
-                        ID="revFloatValidator" 
-                        runat="server" 
-                        ControlToValidate="price" 
-                        ErrorMessage="Please enter a valid float number."
-                        ValidationExpression="^[-+]?\d*\.?\d+$"
-                        ForeColor="Red" />--%>
-
                 </div>
                 <div class="col-6 p-0 pl-4">
                     <label>Stock</label>

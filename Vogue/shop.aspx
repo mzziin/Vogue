@@ -49,8 +49,8 @@
     
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <!-- Page Header Start -->
-    <div class="container-fluid my-3">
-        <div class="d-flex flex-column align-items-start justify-content-center ml-5" style="min-height: 200px">
+    <div class="container-fluid my-3 my-sm-0">
+        <div class="d-flex flex-column align-items-start justify-content-center ml-lg-5 ml-sm-1" style="min-height: 200px">
             <h1 class="font-weight-semi-bold text-uppercase mb-3">Our Shop</h1>
             <div class="d-inline-flex">
                 <p class="m-0"><a href="index.aspx">Home</a></p>
@@ -69,7 +69,7 @@
                 <div class="row pb-3">
                     <asp:Repeater ID="repeat_product" runat="server">
                         <ItemTemplate>
-                            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                            <div class="col-lg-3 col-md-6 col-sm-6 pb-1">
                                 <div class="card product-item border-0 mb-4">
                                     <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
                                         <asp:Image ID="Image1" CssClass="img-fluid" style="width:100%; height:300px; object-fit:cover;" runat="server" ImageUrl='<%# Eval("ImageUrl") %>' />
