@@ -14,8 +14,7 @@ namespace Vogue
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace( Request.QueryString["error"]))
-            {
-                
+            {                
                 error_msg.Visible = true;
                 error_msg.Text = Request.QueryString["error"];
             }

@@ -75,10 +75,10 @@
                                             <asp:Image runat="server" ImageUrl='<%# Eval("ImageUrl") %>' CssClass="img-fluid" style="width:100%; height:150px; object-fit:cover;" />
                                         </td>
                                         <td>
-                                            <asp:LinkButton runat="server" CssClass="btn btn-outline-primary" CommandName="Edit" CommandArgument='<%# Eval("ProductId") %>' OnCommand="editBtn_Command" ID="editBtn" Text="Edit"/>
+                                            <asp:LinkButton runat="server" CssClass="btn rounded btn-outline-primary" CommandName="Edit" CommandArgument='<%# Eval("ProductId") %>' OnCommand="editBtn_Command" ID="editBtn" Text="Edit"/>
                                         </td>
                                         <td style="width:120px;">
-                                            <asp:LinkButton runat="server" CssClass="btn btn-outline-primary" CommandName="Remove" CommandArgument='<%# Eval("ProductId") %>' OnCommand="deleteBtn_Command" ID="deleteBtn" Text="Stock out" />
+                                            <asp:LinkButton runat="server" CssClass="btn rounded btn-outline-primary" CommandName="Remove" CommandArgument='<%# Eval("ProductId") %>' OnCommand="deleteBtn_Command" ID="deleteBtn" Text="Stock out" />
                                         </td>
                                     </tr>
                                 </ItemTemplate>

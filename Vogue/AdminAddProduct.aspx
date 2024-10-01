@@ -23,22 +23,22 @@
 
             <div class="row mb-3 p-1">
                 <label class="p-0">Name</label>
-                <asp:TextBox runat="server" ID="pname" CssClass="form-control border-dark"></asp:TextBox>
+                <asp:TextBox runat="server" ID="pname" CssClass="form-control" BorderColor="LightGray"></asp:TextBox>
             </div>
 
             <div class="row mb-3 p-1">
                 <label class="p-0">Description</label>
-                <asp:TextBox runat="server" ID="description" TextMode="MultiLine" CssClass="form-control border-dark"></asp:TextBox>
+                <asp:TextBox runat="server" ID="description" TextMode="MultiLine" CssClass="form-control" BorderColor="LightGray"></asp:TextBox>
             </div>
 
             <div class="row justify-content-between mb-4 p-1">
                 <div class="col-6 p-0 pr-4">
                     <label>Price</label>
-                    <asp:TextBox TextMode="Number" ID="price" runat="server" CssClass="form-control border-dark"></asp:TextBox>
+                    <asp:TextBox TextMode="Number" ID="price" runat="server" CssClass="form-control" BorderColor="LightGray"></asp:TextBox>
                 </div>
                 <div class="col-6 p-0 pl-4">
                     <label>Stock</label>
-                <asp:TextBox runat="server" ID="stock" TextMode="Number" CssClass="form-control border-dark"></asp:TextBox>
+                <asp:TextBox runat="server" ID="stock" TextMode="Number" CssClass="form-control" BorderColor="LightGray"></asp:TextBox>
                 </div>
                 
             </div>
@@ -46,18 +46,18 @@
             <div class="row justify-content-between mb-3 p-1">
                 <div class="col-6 p-0 pr-4">
                     <label>Category</label>
-                    <asp:DropDownList runat="server" ID="categoryDropDown" CssClass="form-control border-dark">
+                    <asp:DropDownList runat="server" ID="categoryDropDown" CssClass="form-control" BorderColor="LightGray">
                     </asp:DropDownList>
                 </div>
                 <div class="col-6 p-0 pl-4">
                     <label>Upload Image</label>
-                    <asp:FileUpload runat="server" ID="imgUpload" CssClass="form-control border-dark" />
+                    <asp:FileUpload runat="server" ID="imgUpload" CssClass="form-control" BorderColor="LightGray"/>
                 </div>
             </div>
 
             <div class="row justify-content-center my-5">
-                <asp:Button runat="server" Text="Submit" Width="100px" ID="addBtn" CssClass="btn btn-primary rounded mr-3" OnClick="addBtn_Click" />
-                <asp:Button runat="server" Text="Cancel" Width="100px" ID="cancelBtn" CssClass="btn btn-primary rounded ml-3" OnClick="cancelBtn_Click" />               
+                <asp:Button runat="server" Text="Submit" Width="100px" ID="addBtn" CssClass="btn rounded btn-primary rounded mr-3" OnClick="addBtn_Click" />
+                <asp:Button runat="server" Text="Cancel" Width="100px" ID="cancelBtn" CssClass="btn rounded btn-primary rounded ml-3" OnClick="cancelBtn_Click" />               
             </div>
 
         </div>
