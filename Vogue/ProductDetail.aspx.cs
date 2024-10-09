@@ -12,7 +12,7 @@ namespace Vogue
     public partial class ProductDetail : System.Web.UI.Page
     {
         ProductService productService = new ProductService();
-        CartService obj2 = new CartService();
+        CartService cartService = new CartService();
         protected void Page_Load(object sender, EventArgs e)
         {
             string pid = Request.QueryString["ProductId"];
@@ -52,25 +52,11 @@ namespace Vogue
             }
             else
             {
-                int qty=1;
                 int uId = Convert.ToInt32(Session["Customer"]);
                 int pId = Convert.ToInt32(Request.QueryString["ProductId"]);
-                ProductEntity product = productService.ListProduct(pId);
-                int productCountInCart = obj2.QtyOfCartProducts( uId, pId);
-                if(productCountInCart == 0)
-                {
-                    obj2.AddToCart(uId, pId, qty, product.Price, product.Price, product.Name, product.ImageUrl);
-                }
-                else
-                {
-                    int productStock = productService.GetStock(pId);
-                    if (productCountInCart != productStock)
-                    {
-                        qty = productCountInCart + 1;
-                        decimal totalprice = qty * product.Price;
-                        obj2.UpdateCartByProductAndUser(pId, qty, uId, totalprice);
-                    }
-                }
+                
+                cartService.AddToCart(uId, pId);
+
                 Response.Redirect("Cart.aspx");
             }
         }

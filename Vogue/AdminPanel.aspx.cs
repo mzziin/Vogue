@@ -19,10 +19,10 @@ namespace Vogue
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*if (Session["vendor"] == null)
+            if (Session["vendor"] == null)
             {
                 Response.Redirect("Login.aspx");
-            }*/
+            }
             BindData();
             
         }

@@ -16,6 +16,7 @@ namespace Vogue
         protected void Page_Load(object sender, EventArgs e)
         {
             int uid = Convert.ToInt32(Session["customer"]);
+
             if (Session["customer"] != null)
             {
                 loginlabel.Visible = false;
@@ -26,6 +27,7 @@ namespace Vogue
                 Response.Redirect("Login.aspx");
                 
             }
+
             if (!IsPostBack)
             {
                 List<CartEntity> cart = cartService.ListAllProducts(uid);
@@ -42,7 +44,6 @@ namespace Vogue
             int uId = Convert.ToInt32(Session["Customer"]);
             int pId = Convert.ToInt32(e.CommandArgument.ToString());
             int Qty = cartService.QtyOfCartProducts(uId, pId);
-
             Label unitlbl = (Label)e.Item.FindControl("unitlabel");
             decimal unitprice = Convert.ToDecimal(unitlbl.Text);
             decimal totalprice;
@@ -78,6 +79,7 @@ namespace Vogue
                     cartService.DeleteFromCartByProductAndUser(pId, uId);
                     break;
             }
+
             Response.Redirect("Cart.aspx");
         }
 

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.Configuration;
 
 namespace DAL.Repositories
 {
@@ -13,7 +14,7 @@ namespace DAL.Repositories
         private readonly string _connectionString;
         public OrderDataAccess()
         {
-            _connectionString = @"server=DESKTOP-SHCNBA7\SQLEXPRESS;database=Vogue;Integrated Security=true";
+            _connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
         }
 
         public int AddToOrderTable(int userId, string orderDate, decimal totalPrice, string orderStatus, string paymentMethod, string address)

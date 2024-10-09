@@ -31,7 +31,8 @@ namespace Vogue
             string address = fname.Text + " " + lname.Text + ", " + address1.Text + ", " + address2.Text + ", " +
                 city.Text + ", " + state.Text + ", " + country.SelectedItem.Text + ", " + zipcode.Text;
 
-            checkoutService.Checkout(uid, paymentMethod, address);            
+            checkoutService.Checkout(uid, paymentMethod, address);
+            
             Response.Redirect("index.aspx");
         }
     }

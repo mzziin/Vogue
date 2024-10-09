@@ -11,10 +11,31 @@ namespace BLL
     public class CartService
     {
         CartDataAccess cartDataAccess = new CartDataAccess();
+        ProductService productService = new ProductService();
         
-        public bool AddToCart(int Uid, int Pid, int qty, decimal unitprice, decimal totalprice, string name, string imageurl)
+        public bool AddToCart(int uId, int pId)
         {
-            int i = cartDataAccess.Create( Uid, Pid, qty, unitprice, totalprice, name, imageurl);
+            int i=0;
+            int qty = 1;
+
+            ProductEntity product = productService.ListProduct(pId);
+            int productCountInCart = QtyOfCartProducts(uId, pId);
+
+            if (productCountInCart == 0)
+            {
+                i = cartDataAccess.Create(uId, pId, qty, product.Price, product.Price, product.Name, product.ImageUrl);
+            }
+            else
+            {
+                int productStock = productService.GetStock(pId);
+                if (productCountInCart != productStock)
+                {
+                    qty = productCountInCart + 1;
+                    decimal totalprice = qty * product.Price;
+                    i = UpdateCartByProductAndUser(pId, qty, uId, totalprice);
+                }
+            }
+
             if (i != 1)
             {
                 return false;
@@ -62,17 +83,10 @@ namespace BLL
             }
            
         }
-        public bool UpdateCartByProductAndUser(int pid, int qty, int uid, decimal totalprice)
+        public int UpdateCartByProductAndUser(int pid, int qty, int uid, decimal totalprice)
         {
             int i = cartDataAccess.Update(pid, uid, qty, totalprice);
-            if (i == 1)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return i;
         }
         public int QtyOfCartProducts(int uid, int pid)
         {

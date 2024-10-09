@@ -32,19 +32,25 @@ namespace BLL
             decimal convertedPrice = Convert.ToDecimal(price);
             int convertedStock = Convert.ToInt32(stock);
             int convertedCategoryid = Convert.ToInt32(categoryid);
-            adminDataAccess.Add(name, desc, convertedPrice, convertedStock, imageurl, convertedCategoryid);
+            adminDataAccess.AddProductToDb(name, desc, convertedPrice, convertedStock, imageurl, convertedCategoryid);
         }
         public void UpdateProduct(string name, string desc, string price, string stock, string imageurl, string categoryid, int pid)
         {
             decimal convertedPrice = Convert.ToDecimal(price);
             int convertedStock = Convert.ToInt32(stock);
             int convertedCategoryid = Convert.ToInt32(categoryid);
-            adminDataAccess.Update(name, desc, convertedPrice, convertedStock, imageurl, convertedCategoryid, pid);
+            adminDataAccess.UpdateProductFromDb(name, desc, convertedPrice, convertedStock, imageurl, convertedCategoryid, pid);
         }
         public void MarkAsOutOfStock(int pId)
         {
             productService.StockOutProduct(pId);
             cartService.DeleteFromCartByProduct(pId);
+        }
+
+        public DataTable GetOrders()
+        {
+            DataTable dt = adminDataAccess.GetOrdersFromDb();
+            return dt;
         }
     }
 }

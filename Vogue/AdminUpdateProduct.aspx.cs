@@ -35,7 +35,6 @@ namespace Vogue
                 categoryDropDown.SelectedValue = product.CategoryId.ToString();
                 categoryDropDown.DataBind();
             }
-
         }
 
         protected void updateBtn_Click(object sender, EventArgs e)

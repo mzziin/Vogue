@@ -13,10 +13,10 @@ namespace Vogue
         AdminServices adminServices = new AdminServices();
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*if (Session["vendor"] == null)
+            if (Session["vendor"] == null)
             {
                 Response.Redirect("Login.aspx");
-            }*/
+            }
             categoryDropDown.DataSource = adminServices.GetCategoryItems();
             categoryDropDown.DataTextField = "CategoryName";
             categoryDropDown.DataValueField = "CategoryId";

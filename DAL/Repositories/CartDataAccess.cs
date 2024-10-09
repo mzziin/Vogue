@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using DAL.Entities;
+using System.Configuration;
 
 namespace DAL.Repositories
 {
@@ -13,9 +14,9 @@ namespace DAL.Repositories
         private readonly string _connectionString;
         public CartDataAccess()
         {
-            _connectionString = @"server=DESKTOP-SHCNBA7\SQLEXPRESS;database=Vogue;Integrated Security=true";
+            _connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
         }
-        public int Create(int Uid, int Pid, int quantity, decimal unitprice, decimal totalprice, string pname, string imgurl)
+        public int Create(int userId, int productId, int quantity, decimal unitPrice, decimal totalPrice, string productName, string imgURL)
         {
             int i;
             string query = "Insert into Cart values (@uid, @pid, @quantity, @unitprice, @totalprice, @pname, @imageurl)";
@@ -24,20 +25,20 @@ namespace DAL.Repositories
                 conn.Open();
                 using(SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@uid", Uid);
-                    cmd.Parameters.AddWithValue("@pid", Pid);
+                    cmd.Parameters.AddWithValue("@uid", userId);
+                    cmd.Parameters.AddWithValue("@pid", productId);
                     cmd.Parameters.AddWithValue("@quantity", quantity);
-                    cmd.Parameters.AddWithValue("@unitprice", unitprice);
-                    cmd.Parameters.AddWithValue("@totalprice", totalprice);
-                    cmd.Parameters.AddWithValue("@pname", pname);
-                    cmd.Parameters.AddWithValue("@imageurl", imgurl);
+                    cmd.Parameters.AddWithValue("@unitprice", unitPrice);
+                    cmd.Parameters.AddWithValue("@totalprice", totalPrice);
+                    cmd.Parameters.AddWithValue("@pname", productName);
+                    cmd.Parameters.AddWithValue("@imageurl", imgURL);
 
                     i = cmd.ExecuteNonQuery();
                 }
             }
             return i;
         }
-        public int Update(int Cid, int qty)
+        public int Update(int cId, int qty)
         {
             int i;
             string query = "update Cart Set Quantity=@qty where CartId=@cid";
@@ -46,9 +47,8 @@ namespace DAL.Repositories
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@cid", Cid);
+                    cmd.Parameters.AddWithValue("@cid", cId);
                     cmd.Parameters.AddWithValue("@qty", qty);
-                    
 
                     i = cmd.ExecuteNonQuery();
                 }
