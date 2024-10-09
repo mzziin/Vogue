@@ -17,19 +17,8 @@ namespace BLL
         {            
             decimal sumprice = cartService.GetTotalPrice(uid);
             DateTime date = DateTime.Now;
-            bool paymentStatus = true;
-            string orderStatus = "";
 
-            if (paymentStatus)
-            {
-                orderStatus = "Confirmed";
-            }
-            else
-            {
-                orderStatus = "Pending";
-            }
-
-            int orderId = orderService.AddOrder(uid, date.ToString("dd-MM-yyyy"), sumprice, orderStatus, paymentMethod, address);
+            int orderId = orderService.AddOrder(uid, date.ToString("dd-MM-yyyy"), sumprice, "Pending", paymentMethod, address);
 
             List<CartEntity> cartList = cartService.ListAllProducts(uid);
             foreach (var cartItem in cartList)

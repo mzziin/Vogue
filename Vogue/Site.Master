@@ -40,15 +40,10 @@
                     </div>
 
                     <div class="col-lg-6 text-right">
-                        <!-- <a href="" class="btn border">
-                            <i class="fas fa-heart text-primary"></i>
-                            <span class="badge">0</span>
-                        </a> -->
-                        <a href="Cart.aspx" class="btn border">
+                        <a href="Cart.aspx" class="btn border mx-1">
                             <i class="fas fa-shopping-cart text-primary"></i>
                         </a>
-                        <asp:Button runat="server" ID="logoutBtn" Visible="true" Text="Logout" CssClass="btn border" OnClick="logoutBtn_Click" />
-
+                        <asp:Button runat="server" ID="logoutBtn" Visible="true" Text="Logout" CssClass="btn border mx-1" OnClick="logoutBtn_Click" />
                     </div>
                 </div>
             </div>

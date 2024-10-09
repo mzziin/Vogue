@@ -49,8 +49,24 @@ namespace BLL
 
         public DataTable GetOrders()
         {
-            DataTable dt = adminDataAccess.GetOrdersFromDb();
-            return dt;
+            return adminDataAccess.GetOrdersFromDb();
+        }
+        public void PackOrder(int orderId)
+        {
+            adminDataAccess.UpdateOrderStatus(orderId, "Packed");
+        }
+
+        public void ShipOrder(int orderId)
+        {
+            adminDataAccess.UpdateOrderStatus(orderId, "Shipped");
+        }
+        public void DeliverOrder(int orderId)
+        {
+            adminDataAccess.UpdateOrderStatus(orderId, "Delivered");
+        }
+        public string CheckOrderStatus(int orderId)
+        {
+            return adminDataAccess.CheckStatus(orderId);
         }
     }
 }

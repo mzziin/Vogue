@@ -33,21 +33,30 @@ namespace Vogue
         protected global::System.Web.UI.WebControls.Button logoutBtn;
 
         /// <summary>
-        /// addBtn control.
+        /// productbtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button addBtn;
+        protected global::System.Web.UI.WebControls.Button productbtn;
 
         /// <summary>
-        /// productRepeater control.
+        /// orderbtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater productRepeater;
+        protected global::System.Web.UI.WebControls.Button orderbtn;
+
+        /// <summary>
+        /// orderRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater orderRepeater;
     }
 }

@@ -15,10 +15,11 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="container">
-            <main role="main" class="py-3">
+        <div class="container-fluid">
+            <main role="main" class="py-3 mx-5">
                 <div>
                     <div class="row justify-content-between pt-3">
+
                         <h1 class="text-primary font-weight-semi-bold">Vogue</h1>
                         <h2 class="text-center text-dark pt-1">Admin Panal</h2>
                         <div class="pt-1">
@@ -26,7 +27,13 @@
                         </div>
                         
                     </div>
-                    <div class="row mt-5 py-2">
+                    
+                    <div class="row justify-content-center mt-2">
+                        <asp:Button runat="server" ID="productbtn" CssClass="btn btn-secondary m-2" Text="Products"/>
+                        <asp:Button runat="server" ID="orderbtn" CssClass="btn btn-primary m-2" Text="Orders" PostBackUrl="~/AdminOrders.aspx"/>
+                    </div>
+                  
+                    <div class="row mt-5">
                         <div class="col-6">
                             <h2 class="text-dark">Products</h2>
                         </div>
