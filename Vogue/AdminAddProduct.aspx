@@ -24,21 +24,75 @@
             <div class="row mb-3 p-1">
                 <label class="p-0">Name</label>
                 <asp:TextBox runat="server" ID="pname" CssClass="form-control" BorderColor="LightGray"></asp:TextBox>
+                <asp:RequiredFieldValidator 
+                    ID="rfvName" 
+                    runat="server" 
+                    ControlToValidate="pname" 
+                    ErrorMessage="Name is required." 
+                    CssClass="text-danger" 
+                    Display="Dynamic">
+                </asp:RequiredFieldValidator>
             </div>
 
             <div class="row mb-3 p-1">
                 <label class="p-0">Description</label>
                 <asp:TextBox runat="server" ID="description" TextMode="MultiLine" CssClass="form-control" BorderColor="LightGray"></asp:TextBox>
+                <asp:RequiredFieldValidator 
+                    ID="RequiredFieldValidator1" 
+                    runat="server" 
+                    ControlToValidate="description" 
+                    ErrorMessage="Description is required." 
+                    CssClass="text-danger" 
+                    Display="Dynamic">
+                </asp:RequiredFieldValidator>
             </div>
 
             <div class="row justify-content-between mb-4 p-1">
                 <div class="col-6 p-0 pr-4">
                     <label>Price</label>
                     <asp:TextBox TextMode="Number" ID="price" runat="server" CssClass="form-control" BorderColor="LightGray"></asp:TextBox>
+                    <asp:RequiredFieldValidator 
+                        ID="RequiredFieldValidator2" 
+                        runat="server" 
+                        ControlToValidate="price" 
+                        ErrorMessage="Price is required" 
+                        CssClass="text-danger" 
+                        Display="Dynamic">
+                    </asp:RequiredFieldValidator>
+                    <asp:RangeValidator 
+                        ID="rvPrice" 
+                        runat="server" 
+                        ControlToValidate="price" 
+                        MinimumValue="1" 
+                        MaximumValue="1000000" 
+                        Type="Integer" 
+                        ErrorMessage="Price must be between 1 and 1000." 
+                        CssClass="text-danger" 
+                        Display="Dynamic">
+                    </asp:RangeValidator>
                 </div>
                 <div class="col-6 p-0 pl-4">
                     <label>Stock</label>
-                <asp:TextBox runat="server" ID="stock" TextMode="Number" CssClass="form-control" BorderColor="LightGray"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="stock" TextMode="Number" CssClass="form-control" BorderColor="LightGray"></asp:TextBox>
+                    <asp:RequiredFieldValidator 
+                        ID="RequiredFieldValidator3" 
+                        runat="server" 
+                        ControlToValidate="stock" 
+                        ErrorMessage="Enter a valid stock amount" 
+                        CssClass="text-danger" 
+                        Display="Dynamic">
+                    </asp:RequiredFieldValidator>
+                    <asp:RangeValidator 
+                        ID="RangeValidator1" 
+                        runat="server" 
+                        ControlToValidate="stock" 
+                        MinimumValue="1" 
+                        MaximumValue="1000" 
+                        Type="Integer" 
+                        ErrorMessage="Stock must be between 1 and 1000." 
+                        CssClass="text-danger" 
+                        Display="Dynamic">
+                    </asp:RangeValidator>
                 </div>
                 
             </div>
@@ -52,12 +106,30 @@
                 <div class="col-6 p-0 pl-4">
                     <label>Upload Image</label>
                     <asp:FileUpload runat="server" ID="imgUpload" CssClass="form-control" BorderColor="LightGray"/>
+                    <asp:RequiredFieldValidator 
+                        ID="rfvImage" 
+                        runat="server" 
+                        ControlToValidate="imgUpload" 
+                        ErrorMessage="Please upload an image." 
+                        InitialValue="" 
+                        CssClass="text-danger" 
+                        Display="Dynamic">
+                    </asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator 
+                        ID="revImage" 
+                        runat="server" 
+                        ControlToValidate="imgUpload" 
+                        ValidationExpression="^.*\.(jpg|jpeg|png)$" 
+                        ErrorMessage="Only .jpg, .jpeg and .png files are allowed." 
+                        CssClass="text-danger" 
+                        Display="Dynamic">
+                    </asp:RegularExpressionValidator>
                 </div>
             </div>
 
             <div class="row justify-content-center my-5">
                 <asp:Button runat="server" Text="Submit" Width="100px" ID="addBtn" CssClass="btn rounded btn-primary rounded mr-3" OnClick="addBtn_Click" />
-                <asp:Button runat="server" Text="Cancel" Width="100px" ID="cancelBtn" CssClass="btn rounded btn-primary rounded ml-3" OnClick="cancelBtn_Click" />               
+                <asp:Button runat="server" Text="Cancel" Width="100px" ID="cancelBtn" CssClass="btn rounded btn-primary rounded ml-3" OnClick="cancelBtn_Click" CausesValidation="False" />               
             </div>
 
         </div>

@@ -15,8 +15,8 @@ namespace Vogue
         {
             if (!string.IsNullOrWhiteSpace( Request.QueryString["error"]))
             {                
-                error_msg.Visible = true;
                 error_msg.Text = Request.QueryString["error"];
+                error_msg.Visible = true;
             }
         }
 
@@ -35,7 +35,6 @@ namespace Vogue
             foreach(string i in labels){
                 if (string.IsNullOrWhiteSpace(i))
                 {
-                    error_msg.Text = "Enter all details correctly";
                     Response.Redirect("Register.aspx?error=Enter all details correctly");
                 }
             }
@@ -47,7 +46,7 @@ namespace Vogue
             }
             else
             {
-                error_msg.Text = "An error Occurred";
+                Response.Redirect("Register.aspx?error=An unexpected error occurred");
             }
         }
     }
