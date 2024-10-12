@@ -12,7 +12,15 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <div class="container-fluid mt-3 fixed-top">
+            <div class="row pt-3 px-5">
+                <a href="Index.aspx" class="text-decoration-none col">
+                    <h1 class="m-0 display-5 font-weight-semi-bold">Vogue</h1>
+                </a>
+            </div>
+        </div>
         <div class="d-flex container justify-content-center align-items-center min-vh-100">
+            
             <div class="card rounded" style="width:24rem;">
                 <div class="card-body">
                     <div class="row my-3 px-4">
