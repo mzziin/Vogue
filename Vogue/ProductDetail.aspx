@@ -37,11 +37,11 @@
     <!-- Shop Detail Start -->
     <div class="container-fluid pt-5">
         <div class="row px-xl-5">
-            <div class="col">
+            <div class="col-lg-4">
                 <asp:Image ID="Image1" runat="server" CssClass="w-75" />                
             </div>
 
-            <div class="col-lg-8 pt-5">
+            <div class="col-lg-4 pt-5">
                 <h3 class="font-weight-semi-bold">
                     <asp:Label runat="server" ID="name"></asp:Label>
                 </h3>
@@ -54,10 +54,12 @@
                 </p>
 
                 <div class="d-flex align-items-center mb-4 pt-2">
-
-                    <i class="fa fa-shopping-cart mr-2"></i>
+                    <div class="h4 pt-2">
+                        <i class="fa fa-shopping-cart mr-3"></i>
+                    </div>
+                    
                     <asp:Label runat="server" ID="productId" Visible="false" Text=""></asp:Label>
-                    <asp:Button runat="server" ID="btn" Text="Add to cart" OnClick="btn_Click" class="btn rounded btn-primary px-3" />
+                    <asp:Button runat="server" ID="btn" Text="Add to cart" OnClick="btn_Click" class="btn btn-primary px-3" />
 
                 </div>
 

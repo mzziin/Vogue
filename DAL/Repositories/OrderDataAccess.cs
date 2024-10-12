@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
+using DAL.Entities;
 
 namespace DAL.Repositories
 {
@@ -63,6 +64,53 @@ namespace DAL.Repositories
                 conn.Open();
                 cmd.ExecuteNonQuery();
             }
+        }
+        public List<OrderEntity> GetAllOrders(int uId)
+        {
+            List<OrderEntity> ordersList = new List<OrderEntity>();
+
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                string query = @"SELECT
+                                    a.OrderDate,
+                                    a.PaymentMethod,
+                                    p.Name,
+                                    b.Quantity,
+                                    b.TotalPrice,
+                                    a.OrderStatus
+                                FROM
+                                    Orders a
+                                    INNER JOIN OrderDetails b ON a.OrderId = b.OrderId
+                                    INNER JOIN Products p ON b.ProductId = p.ProductId
+                                WHERE
+                                    a.UserId = @uid
+                                ORDER BY CASE 
+                                WHEN OrderStatus = 'Pending' THEN 1
+                                WHEN OrderStatus = 'Packed' THEN 2 
+                                WHEN OrderStatus = 'Shipped' THEN 3 
+                                ELSE 4
+                                END";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@uId", uId);
+                    conn.Open();
+                    SqlDataReader sdr = cmd.ExecuteReader();
+                    while (sdr.Read())
+                    {
+                        OrderEntity obj = new OrderEntity
+                        {
+                            Name = sdr["Name"].ToString(),
+                            OrderStatus = sdr["OrderStatus"].ToString(),
+                            PaymentMethod = sdr["PaymentMethod"].ToString(),
+                            Quantity = sdr["Quantity"].ToString(),
+                            TotalPrice = sdr["TotalPrice"].ToString()
+                        };
+                        ordersList.Add(obj);
+                    }
+                }
+            }
+            return ordersList;
         }
 
     }

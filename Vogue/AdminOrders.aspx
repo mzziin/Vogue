@@ -48,7 +48,7 @@
                         </thead>
                         <tbody>
 
-                            <asp:Repeater runat="server" ID="orderRepeater">
+                            <asp:Repeater runat="server" ID="orderRepeater" OnItemDataBound="Repeater1_ItemDataBound">
                                 <ItemTemplate>
                                     <tr>
                                         <td>
@@ -73,13 +73,13 @@
                                            <%# Eval("OrderStatus") %>
                                         </td>
                                         <td style="width:100px;">
-                                            <asp:LinkButton runat="server" CssClass="btn rounded btn-outline-primary" CommandName="Packed" CommandArgument='<%# Eval("OrderId") %>' OnCommand="packBtn_Command" ID="packBtn" Text="Packed"/>
+                                            <asp:LinkButton runat="server" CssClass="btn rounded btn-primary" CommandName="Packed" CommandArgument='<%# Eval("OrderId") %>' OnCommand="packBtn_Command" ID="packBtn" Text="Packed"/>
                                         </td>
                                         <td style="width:100px;">
-                                            <asp:LinkButton runat="server" CssClass="btn rounded btn-outline-primary" CommandName="Shipped" CommandArgument='<%# Eval("OrderId") %>' OnCommand="shipBtn_Command" ID="shipBtn" Text="Shipped" />
+                                            <asp:LinkButton runat="server" CssClass="btn rounded btn-primary" CommandName="Shipped" CommandArgument='<%# Eval("OrderId") %>' OnCommand="shipBtn_Command" ID="shipBtn" Text="Shipped" />
                                         </td>
                                         <td style="width:100px;">
-                                            <asp:LinkButton runat="server" CssClass="btn rounded btn-outline-primary" CommandName="Delivered" CommandArgument='<%# Eval("OrderId") %>' OnCommand="deliverBtn_Command" ID="deliverBtn" Text="Delivered" />
+                                            <asp:LinkButton runat="server" CssClass="btn rounded btn-primary" CommandName="Delivered" CommandArgument='<%# Eval("OrderId") %>' OnCommand="deliverBtn_Command" ID="deliverBtn" Text="Delivered" />
                                         </td>
                                     </tr>
                                 </ItemTemplate>

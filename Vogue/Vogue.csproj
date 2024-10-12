@@ -111,6 +111,7 @@
     <Content Include="Register.aspx" />
     <Content Include="Shop.aspx" />
     <Content Include="style.css" />
+    <Content Include="UserOrders.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -205,6 +206,13 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="UserOrders.aspx.cs">
+      <DependentUpon>UserOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserOrders.aspx.designer.cs">
+      <DependentUpon>UserOrders.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

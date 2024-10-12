@@ -21,7 +21,7 @@ namespace Vogue
             else
             {
                 Response.Redirect("Login.aspx");
-            }            
+            }
         }
 
         protected void orderbtn_Click(object sender, EventArgs e)

@@ -34,14 +34,17 @@
 
                 <div class="row align-items-center py-3 px-xl-5">
                     <div class="col-lg-6 d-none d-lg-block">
-                        <a href="" class="text-decoration-none">
+                        <a href="Index.aspx" class="text-decoration-none">
                             <h1 class="m-0 display-5 font-weight-semi-bold">Vogue</h1>
                         </a>
                     </div>
 
                     <div class="col-lg-6 text-right">
                         <a href="Cart.aspx" class="btn border mx-1">
-                            <i class="fas fa-shopping-cart text-primary"></i>
+                            <i class="fas fa-shopping-cart text-primary" aria-hidden="true"></i> Cart
+                        </a>
+                        <a href="UserOrders.aspx" class="btn border mx-1">
+                            <i class="fa fa-inbox text-primary" aria-hidden="true"></i> Orders
                         </a>
                         <asp:Button runat="server" ID="logoutBtn" Visible="true" Text="Logout" CssClass="btn border mx-1" OnClick="logoutBtn_Click" />
                     </div>

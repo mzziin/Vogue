@@ -109,13 +109,13 @@ namespace DAL.Repositories
 
         public DataTable GetOrdersFromDb()
         {
-            string query = "SELECT * FROM Orders " +
-                "ORDER BY CASE " +
-                "WHEN OrderStatus = 'Pending' THEN 1 " +
-                "WHEN OrderStatus = 'Packed' THEN 2 " +
-                "WHEN OrderStatus = 'Shipped' THEN 3 " +
-                "ELSE 4 " +
-                "END;";
+            string query = @"SELECT * FROM Orders 
+                            ORDER BY CASE 
+                            WHEN OrderStatus = 'Pending' THEN 1 
+                            WHEN OrderStatus = 'Packed' THEN 2 
+                            WHEN OrderStatus = 'Shipped' THEN 3 
+                            ELSE 4 
+                            END";
 
             DataTable dt = new DataTable();
             using (SqlConnection conn = new SqlConnection(_connectionString))

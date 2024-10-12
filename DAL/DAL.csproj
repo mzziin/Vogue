@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\CartEntity.cs" />
+    <Compile Include="Entities\OrderEntity.cs" />
     <Compile Include="Entities\ProductEntity.cs" />
     <Compile Include="Entities\UserEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

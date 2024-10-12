@@ -25,7 +25,6 @@ namespace Vogue
             else
             {
                 Response.Redirect("Login.aspx");
-                
             }
 
             if (!IsPostBack)

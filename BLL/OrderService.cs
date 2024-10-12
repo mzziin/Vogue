@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL.Repositories;
+using System.Data;
+using DAL.Entities;
 
 namespace BLL
 {
@@ -19,6 +21,10 @@ namespace BLL
         public void AddOrderDetails(int orderId, int pId, int Qty, int unitPrice, decimal totalPrice)
         {
             orderDataAccess.AddToOrderDetailTable(orderId, pId, Qty, unitPrice, totalPrice);
+        }
+        public List<OrderEntity> GetOrdersOfUser(int pId)
+        {
+            return orderDataAccess.GetAllOrders(pId);
         }
     }
 }
