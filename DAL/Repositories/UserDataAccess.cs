@@ -88,5 +88,29 @@ namespace DAL.Repositories
             }
             return id;
         }
+        public (string FullName, string Email) GetNameAndEmail(int uId)
+        {
+            string fullName = null;
+            string email = null;
+
+            string query = "SELECT FullName, Email FROM Users WHERE UserId = @uId";
+            using(SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                using(SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@uId", uId);
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            fullName = reader["FullName"].ToString();
+                            email = reader["Email"].ToString();
+                        }
+                    }
+                }
+            }
+            return (fullName, email);
+        }
     }
 }

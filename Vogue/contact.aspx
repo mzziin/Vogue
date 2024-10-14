@@ -53,29 +53,23 @@
                     <div id="success"></div>
                     <form name="sentMessage" id="contactForm" novalidate="novalidate">
                         <div class="control-group">
-                            <input type="text" class="form-control" id="name" placeholder="Your Name"
-                                required="required" data-validation-required-message="Please enter your name" />
+                            <asp:TextBox runat="server" placeholder="Name" ID="name" CssClass="form-control"></asp:TextBox>
                             <p class="help-block text-danger"></p>
                         </div>
                         <div class="control-group">
-                            <input type="email" class="form-control" id="email" placeholder="Your Email"
-                                required="required" data-validation-required-message="Please enter your email" />
+                            <asp:TextBox runat="server" placeholder="Your Email" ID="email" CssClass="form-control"></asp:TextBox>
                             <p class="help-block text-danger"></p>
                         </div>
                         <div class="control-group">
-                            <input type="text" class="form-control" id="subject" placeholder="Subject"
-                                required="required" data-validation-required-message="Please enter a subject" />
+                            <asp:TextBox runat="server" placeholder="Subject" ID="subject" CssClass="form-control"></asp:TextBox>
                             <p class="help-block text-danger"></p>
                         </div>
                         <div class="control-group">
-                            <textarea class="form-control" rows="6" id="message" placeholder="Message"
-                                required="required"
-                                data-validation-required-message="Please enter your message"></textarea>
+                            <asp:TextBox runat="server" TextMode="MultiLine" ID="message" placeholder="Message" CssClass="form-control"></asp:TextBox>
                             <p class="help-block text-danger"></p>
                         </div>
                         <div>
-                            <button class="btn btn-primary py-2 px-4" type="submit" id="sendMessageButton">Send
-                                Message</button>
+                            <asp:Button runat="server" ID="btn" Text="Send Message" CssClass="btn btn-primary py-2 px-4" OnClick="btn_Click" />
                         </div>
                     </form>
                 </div>

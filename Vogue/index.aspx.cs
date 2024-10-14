@@ -10,7 +10,7 @@ namespace Vogue
 {
     public partial class index : System.Web.UI.Page
     {
-        ProductService obj = new ProductService();
+        ProductService productService = new ProductService();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -29,7 +29,7 @@ namespace Vogue
                     registerlabel.Visible = true;
                 }
             }
-            repeat_category.DataSource = obj.GetCategory();
+            repeat_category.DataSource = productService.GetCategory();
             repeat_category.DataBind();
         }
     }

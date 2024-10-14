@@ -11,7 +11,7 @@ namespace Vogue
 {
     public partial class Login : System.Web.UI.Page
     {
-        UserService obj = new UserService();
+        UserService userService = new UserService();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -21,10 +21,10 @@ namespace Vogue
         {
             string uname = username.Text;
             string password = pwd.Text;
-            if(obj.ValidateUser(uname, password))
+            if(userService.ValidateUser(uname, password))
             {
-                int UserId = obj.GetUserId(uname, password);
-                string UserRole = obj.GetUserRole(uname, password);
+                int UserId = userService.GetUserId(uname, password);
+                string UserRole = userService.GetUserRole(uname, password);
                 FormsAuthentication.SetAuthCookie(uname, true);
                 if (UserRole == "Customer")
                 {

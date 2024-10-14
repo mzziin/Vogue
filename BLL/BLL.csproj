@@ -44,6 +44,7 @@
     <Compile Include="AdminServices.cs" />
     <Compile Include="CartService.cs" />
     <Compile Include="CheckoutService.cs" />
+    <Compile Include="EmailService.cs" />
     <Compile Include="OrderService.cs" />
     <Compile Include="ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

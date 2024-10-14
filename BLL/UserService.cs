@@ -11,11 +11,10 @@ namespace BLL
 {
     public class UserService
     {
-        UserEntity user = null;
-        UserDataAccess obj = new UserDataAccess();
+        UserDataAccess userDataAccess = new UserDataAccess();
         public bool InsertUser(string name, string username, string email, string password, string role, string phone, string address, string zip)
         {
-            user = new UserEntity
+            var user = new UserEntity
             {
                 FullName = name,
                 Username = username,
@@ -26,7 +25,7 @@ namespace BLL
                 Address = address,
                 ZipCode = zip
             };
-            int i = obj.AddUser(user);
+            int i = userDataAccess.AddUser(user);
             if(i != 0)
             {
                 return true;
@@ -38,16 +37,16 @@ namespace BLL
         }
         public int GetUserId(string uname, string pwd)
         {
-            int id = obj.GetId(uname, pwd);
+            int id = userDataAccess.GetId(uname, pwd);
             return id;
         }
         public string GetUserRole(string uname, string pwd)
         {
-            string role = obj.GetRole(uname, pwd);
+            string role = userDataAccess.GetRole(uname, pwd);
             return role;
         }
         public bool ValidateUser(string uname, string pwd) {
-            string count = obj.GetCountOfId(uname, pwd);
+            string count = userDataAccess.GetCountOfId(uname, pwd);
             if(count == "1")
             {
                 return true;
@@ -56,6 +55,10 @@ namespace BLL
             {
                 return false;
             }
+        }
+        public (string FullName, string Email) GetUserNameAndEmail(int uId)
+        {
+            return userDataAccess.GetNameAndEmail(uId);
         }
     }
 }

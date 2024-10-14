@@ -23,7 +23,12 @@ namespace Vogue
                 loginlabel.Visible = true;
                 registerlabel.Visible = true;
             }
+        }
 
+        protected void btn_Click(object sender, EventArgs e)
+        {
+
+            
         }
     }
 }
