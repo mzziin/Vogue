@@ -46,7 +46,7 @@
                         <a href="UserOrders.aspx" class="btn border mx-1">
                             <i class="fa fa-inbox text-primary" aria-hidden="true"></i> Orders
                         </a>
-                        <asp:Button runat="server" ID="logoutBtn" Visible="true" Text="Logout" CssClass="btn border mx-1" OnClick="logoutBtn_Click" />
+                        <asp:Button runat="server" ID="logoutBtn" Visible="true" Text="Logout" CssClass="btn btn-outline-primary text-dark border mx-1" OnClick="logoutBtn_Click" />
                     </div>
                 </div>
             </div>

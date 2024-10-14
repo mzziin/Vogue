@@ -73,7 +73,7 @@
                             </td>
                             <td class="col d-flex">
                                 <div class="mr-2">
-                                    <i class="fa fa-circle text-success" aria-hidden="true"></i>
+                                    <i class="fa fa-circle  <%# GetStatusClass(Eval("OrderStatus").ToString()) %>"></i>
                                 </div>
                                 <asp:Label runat="server" Text='<%# Eval("OrderStatus") %>'></asp:Label>
                           

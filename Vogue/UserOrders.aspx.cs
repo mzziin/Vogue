@@ -31,5 +31,20 @@ namespace Vogue
                 order_repeater.DataBind();
             }
         }
+        protected string GetStatusClass(string status)
+        {
+            switch (status.ToLower())
+            {
+                case "pending":
+                    return "text-warning";  // Yellow color for pending status
+                case "shipped":
+                    return "text-info";  // Blue color for shipped status
+                case "delivered":
+                    return "text-success";  // Green color for delivered status
+                default:
+                    return "text-secondary"; // Default grey color
+            }
+        }
+
     }
 }
